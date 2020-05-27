@@ -14,7 +14,6 @@ define view ZTT_I_USERS
                                                 and _adcp.nation          = ''
                                                 and _adcp.date_from       = '00010101'
   association [0..1] to uscompany as _uscompany on  _uscompany.addrnumber = usr21.addrnumber
-                                                or  _uscompany.addrnumber = usr21.template_orgaddr // Use company or template_company
   association [0..1] to adrc      as _adrc      on  _adrc.addrnumber      = usr21.addrnumber
                                                 and _adrc.nation          = ''
                                                 and _adrc.date_from       = '00010101'
@@ -32,7 +31,6 @@ define view ZTT_I_USERS
       usr21.persnumber as personNumber,
       usr21.addrnumber as addressNumber,
       usr21.bpperson as BPGUID,
-      usr21.template_orgaddr as templateOrgAddressNumber,
       usr21.techdesc as technicalUserDescription,
       _adrp,
       _adcp,
