@@ -3,19 +3,19 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <DD04V>
-    <ROLLNAME>ZTT_STARTED_ON</ROLLNAME>
+    <ROLLNAME>ZTT_PLAN_ESTIMATION</ROLLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
-    <DOMNAME>DATS</DOMNAME>
+    <DOMNAME>ZTT_ESTIMATION_TIME</DOMNAME>
     <LOGFLAG>X</LOGFLAG>
     <HEADLEN>55</HEADLEN>
     <SCRLEN1>10</SCRLEN1>
     <SCRLEN2>20</SCRLEN2>
     <SCRLEN3>40</SCRLEN3>
-    <DDTEXT>Started on</DDTEXT>
-    <REPTEXT>Started on</REPTEXT>
-    <SCRTEXT_S>Started</SCRTEXT_S>
-    <SCRTEXT_M>Started on</SCRTEXT_M>
-    <SCRTEXT_L>Started on</SCRTEXT_L>
+    <DDTEXT>Planned estimation</DDTEXT>
+    <REPTEXT>Plan Estimation</REPTEXT>
+    <SCRTEXT_S>Plan. Est.</SCRTEXT_S>
+    <SCRTEXT_M>Plan Estimation</SCRTEXT_M>
+    <SCRTEXT_L>Planned Estimation</SCRTEXT_L>
     <DTELMASTER>E</DTELMASTER>
     <REFKIND>D</REFKIND>
    </DD04V>

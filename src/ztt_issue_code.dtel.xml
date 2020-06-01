@@ -3,19 +3,19 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <DD04V>
-    <ROLLNAME>ZTT_STARTED_ON</ROLLNAME>
+    <ROLLNAME>ZTT_ISSUE_CODE</ROLLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
-    <DOMNAME>DATS</DOMNAME>
+    <DOMNAME>ZTT_ISSUE_CODE</DOMNAME>
     <LOGFLAG>X</LOGFLAG>
     <HEADLEN>55</HEADLEN>
     <SCRLEN1>10</SCRLEN1>
     <SCRLEN2>20</SCRLEN2>
     <SCRLEN3>40</SCRLEN3>
-    <DDTEXT>Started on</DDTEXT>
-    <REPTEXT>Started on</REPTEXT>
-    <SCRTEXT_S>Started</SCRTEXT_S>
-    <SCRTEXT_M>Started on</SCRTEXT_M>
-    <SCRTEXT_L>Started on</SCRTEXT_L>
+    <DDTEXT>Issue Code</DDTEXT>
+    <REPTEXT>Issue Code</REPTEXT>
+    <SCRTEXT_S>Issue Code</SCRTEXT_S>
+    <SCRTEXT_M>Issue Code</SCRTEXT_M>
+    <SCRTEXT_L>Issue Code</SCRTEXT_L>
     <DTELMASTER>E</DTELMASTER>
     <REFKIND>D</REFKIND>
    </DD04V>
