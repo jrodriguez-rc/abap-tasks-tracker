@@ -1,12 +1,13 @@
 @AbapCatalog.sqlViewName: 'ZTTVH_TIME_UNIT'
 @AbapCatalog.compiler.compareFilter: true
 @AbapCatalog.preserveKey: true
-@AccessControl.authorizationCheck: #CHECK
+@AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'Time Unit Value Help'
 
 @Search.searchable: true
 @OData.publish:true
 
+@ObjectModel.representativeKey: 'timeUnit'
 @ObjectModel.resultSet.sizeCategory: #XS
 
 define view ZTT_VH_TIME_UNIT
