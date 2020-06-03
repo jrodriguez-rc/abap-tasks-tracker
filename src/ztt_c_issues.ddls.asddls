@@ -12,7 +12,7 @@
 @ObjectModel: {
     transactionalProcessingDelegated: true,
     representativeKey: 'code',
-    semanticKey: ['projectCode,code'],
+    semanticKey: [ 'projectCode', 'code' ],
     createEnabled: true,
     updateEnabled: true,
     deleteEnabled: true

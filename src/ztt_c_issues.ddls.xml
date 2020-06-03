@@ -6,7 +6,6 @@
     <DDLNAME>ZTT_C_ISSUES</DDLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
     <DDTEXT>Issues</DDTEXT>
-    <SOURCE_TYPE>V</SOURCE_TYPE>
    </DDLS>
   </asx:values>
  </asx:abap>
