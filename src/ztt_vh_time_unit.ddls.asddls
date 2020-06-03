@@ -5,16 +5,19 @@
 @EndUserText.label: 'Time Unit Value Help'
 
 @Search.searchable: true
-@OData.publish:true
 
 @ObjectModel.representativeKey: 'timeUnit'
 @ObjectModel.resultSet.sizeCategory: #XS
 
+@UI.headerInfo.typeName: 'Time Unit'
+@UI.headerInfo.typeNamePlural: 'Time Units'
+@UI.headerInfo.title.value: 'timeUnit'
+
 define view ZTT_VH_TIME_UNIT
     as select from dd07l
     association [0..1] to ZTT_I_DOMAIN_TEXT as _text on _text.domainName    = 'ZTT_TIME_UNIT'
-                                                    and _text.valuePosition = dd07l.valpos
-                                                    and _text.language      = $session.system_language
+                                                      and _text.valuePosition = dd07l.valpos
+                                                      and _text.language      = $session.system_language
 {
 
     @UI.lineItem.position: 10
