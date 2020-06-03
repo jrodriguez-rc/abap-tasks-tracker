@@ -9,7 +9,7 @@
 @ObjectModel: {
     modelCategory: #BUSINESS_OBJECT,
     representativeKey: 'code',
-    semanticKey: ['project_code,code'],
+    semanticKey: [ 'project_code', 'code' ],
     createEnabled: true,
     updateEnabled: true,
     deleteEnabled: true,
