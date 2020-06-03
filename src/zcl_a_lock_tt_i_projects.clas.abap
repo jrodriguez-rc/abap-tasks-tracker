@@ -1,22 +1,22 @@
-class ZCL_A_LOCK_TT_I_PROJECTS definition
-  public
-  inheriting from /BOBF/CL_LIB_A_LOCK_ACTIVE
-  final
-  create public .
+CLASS zcl_a_lock_tt_i_projects DEFINITION
+  PUBLIC
+  INHERITING FROM /bobf/cl_lib_a_lock_active
+  FINAL
+  CREATE PUBLIC .
 
-public section.
+  PUBLIC SECTION.
 
-  methods /BOBF/IF_LIB_LOCK_ACTIVE~LOCK_ACTIVE_ENTITY
-    redefinition .
-protected section.
-private section.
+    METHODS /bobf/if_lib_lock_active~lock_active_entity
+        REDEFINITION .
+  PROTECTED SECTION.
+  PRIVATE SECTION.
 ENDCLASS.
 
 
 
-CLASS ZCL_A_LOCK_TT_I_PROJECTS IMPLEMENTATION.
+CLASS zcl_a_lock_tt_i_projects IMPLEMENTATION.
 
 
-  method /BOBF/IF_LIB_LOCK_ACTIVE~LOCK_ACTIVE_ENTITY.
-  endmethod.
+  METHOD /bobf/if_lib_lock_active~lock_active_entity.
+  ENDMETHOD.
 ENDCLASS.
