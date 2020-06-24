@@ -8,40 +8,36 @@
 @Metadata.allowExtensions
 
 @ObjectModel: {
-    transactionalProcessingDelegated: true,
     representativeKey: 'code',
     semanticKey: [ 'projectCode', 'code' ],
     createEnabled: true,
     updateEnabled: true,
-    deleteEnabled: true
+    deleteEnabled: true,
+    transactionalProcessingDelegated: true
 }
 
 @UI.headerInfo:
 {
     typeName: 'Issue',
-    typeNamePlural: 'Issue',
-    title.value: 'code',
+    typeNamePlural: 'Issues',
+    title.value: 'description',
     title.label: 'Issue'
 }
 
-@UI.presentationVariant: [{sortOrder: [{by: 'projectCode', direction: #ASC},
-                                       {by: 'code', direction: #DESC}] }]
+//@UI.presentationVariant: [{sortOrder: [{by: 'projectCode', direction: #ASC},
+//                                       {by: 'code', direction: #DESC}] }]
 
 define view ZTT_C_ISSUES
     as select from ZTT_I_ISSUES
-    association [1] to ZTT_C_PROJECTS as _project
-        on $projection.projectCode = _project.code
-    association [0..1] to ZTT_VH_USER as _functionalUserInfo
-        on $projection.functionalResponsible = _functionalUserInfo.userName
-    association [0..1] to ZTT_VH_USER as _technicalUserInfo
-        on $projection.technicalResponsible = _technicalUserInfo.userName
-    association [0..1] to ZTT_VH_TIME_UNIT as _timeUnit
-        on $projection.timeUnit = _timeUnit.timeUnit
-    association [0..1] to ZTT_I_STATUS as _status
-        on $projection.status = _status.status
-    association [0..*] to ZTT_C_ISSUE_COMMENTS as _comment
-        on $projection.code        = _comment.issueCode
-       and $projection.projectCode = _comment.projectCode
+    association [1] to ZTT_C_PROJECTS          as _project            on $projection.projectCode = _project.code
+    association [0..1] to ZTT_VH_USER          as _functionalUserInfo on $projection.functionalResponsible = _functionalUserInfo.userName
+    association [0..1] to ZTT_VH_USER          as _technicalUserInfo  on $projection.technicalResponsible = _technicalUserInfo.userName
+    association [0..1] to ZTT_VH_TIME_UNIT     as _timeUnit           on $projection.timeUnit = _timeUnit.timeUnit
+    association [0..1] to ZTT_I_STATUS         as _status             on $projection.status = _status.status
+    association [0..*] to ZTT_C_ISSUE_COMMENTS as _comment            on $projection.code        = _comment.issueCode
+                                                                       and $projection.projectCode = _comment.projectCode
+    association [0..*] to ZTT_C_ISSUE_TRANSPORT_REQUESTS as _transportRequests on $projection.code        = _transportRequests.issueCode
+                                                                                and $projection.projectCode = _transportRequests.projectCode
 {
     @ObjectModel: { 
         mandatory: true,
@@ -132,6 +128,7 @@ define view ZTT_C_ISSUES
     }
     @ObjectModel.mandatory: true
     @Consumption.valueHelp:'_status'
+    @Consumption.filter.defaultValue: ['OPEN']
     @ObjectModel.foreignKey.association: '_status'
     status,
     
@@ -220,6 +217,8 @@ define view ZTT_C_ISSUES
     _project,
     @ObjectModel.association.type: #TO_COMPOSITION_CHILD
     _comment,
+    @ObjectModel.association.type: #TO_COMPOSITION_CHILD
+    _transportRequests,
     _functionalUserInfo,
     _technicalUserInfo,
     _timeUnit,

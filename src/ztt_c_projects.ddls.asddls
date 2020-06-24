@@ -28,10 +28,8 @@
 
 define view ZTT_C_PROJECTS
     as select from ZTT_I_PROJECTS
-    association [0..*] to ZTT_C_ISSUES as _issues
-        on $projection.code = _issues.projectCode
-    association [0..1] to ZTT_VH_TIME_UNIT as _timeUnit
-        on $projection.defaultTimeUnit = _timeUnit.timeUnit
+    association [0..*] to ZTT_C_ISSUES     as _issues   on $projection.code = _issues.projectCode
+    association [0..1] to ZTT_VH_TIME_UNIT as _timeUnit on $projection.defaultTimeUnit = _timeUnit.timeUnit
 {
 
     @UI.lineItem: [

@@ -8,12 +8,12 @@
 @Metadata.allowExtensions
 
 @ObjectModel: {
-    transactionalProcessingDelegated: true,
     representativeKey: 'code',
-    semanticKey: [ 'project_code', 'issue_code', 'code' ],
+    semanticKey: [ 'projectCode', 'issueCode', 'code' ],
     createEnabled: true,
     updateEnabled: true,
-    deleteEnabled: true
+    deleteEnabled: true,
+    transactionalProcessingDelegated: true
 }
 
 @UI.headerInfo:
@@ -24,9 +24,9 @@
     title.label: 'Comment'
 }
 
-@UI.presentationVariant: [{sortOrder: [{by: 'projectCode', direction: #ASC},
-                                       {by: 'issueCode', direction: #DESC},
-                                       {by: 'createdOn', direction: #DESC}] }]
+//@UI.presentationVariant: [{sortOrder: [{by: 'projectCode', direction: #ASC},
+//                                       {by: 'issueCode', direction: #DESC},
+//                                       {by: 'createdOn', direction: #DESC}] }]
 
 define view ZTT_C_ISSUE_COMMENTS
     as select from ZTT_I_ISSUE_COMMENTS
@@ -105,7 +105,7 @@ define view ZTT_C_ISSUE_COMMENTS
 //        dataPoint.title: 'Comment code'
 //    }
     @Consumption.hidden: true
-    key db_key as code,
+    key code,
     
     @ObjectModel: { 
         mandatory: true

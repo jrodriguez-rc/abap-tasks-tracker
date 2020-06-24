@@ -8,8 +8,8 @@
 
 @ObjectModel: {
     modelCategory: #BUSINESS_OBJECT,
-    representativeKey: 'db_key',
-    semanticKey: [ 'project_code', 'issue_code', 'db_key' ],
+    representativeKey: 'code',
+    semanticKey: [ 'project_code', 'issue_code', 'code' ],
     createEnabled: true,
     updateEnabled: true,
     deleteEnabled: true,
@@ -36,7 +36,7 @@ define view ZTT_I_ISSUE_COMMENTS
     @ObjectModel.foreignKey.association: '_issue'
     key issue_code,
 
-    key db_key,
+    key code,
     
     @Search.ranking: #HIGH
     commentary,

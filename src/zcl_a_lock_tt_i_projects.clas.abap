@@ -5,9 +5,9 @@ CLASS zcl_a_lock_tt_i_projects DEFINITION
   CREATE PUBLIC .
 
   PUBLIC SECTION.
-
     METHODS /bobf/if_lib_lock_active~lock_active_entity
-        REDEFINITION .
+        REDEFINITION.
+
   PROTECTED SECTION.
   PRIVATE SECTION.
 ENDCLASS.
@@ -19,4 +19,6 @@ CLASS zcl_a_lock_tt_i_projects IMPLEMENTATION.
 
   METHOD /bobf/if_lib_lock_active~lock_active_entity.
   ENDMETHOD.
+
+
 ENDCLASS.

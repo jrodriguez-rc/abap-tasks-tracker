@@ -96,7 +96,7 @@ CLASS zcl_tt_d_issuecomm_at_creation IMPLEMENTATION.
 
     cs_comment-issue_code   = ls_issue-code.
     cs_comment-project_code = ls_issue-project_code.
-    cs_comment-db_key       = CAST if_system_uuid( NEW cl_system_uuid( ) )->create_uuid_c32( ).
+    cs_comment-code         = CAST if_system_uuid( NEW cl_system_uuid( ) )->create_uuid_c32( ).
 
   ENDMETHOD.
 
