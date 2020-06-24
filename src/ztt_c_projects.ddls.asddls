@@ -7,6 +7,7 @@
 @Search.searchable: true
 
 @OData.publish: true
+@Metadata.allowExtensions
 
 @ObjectModel: {
     representativeKey: 'code',
@@ -14,8 +15,15 @@
     createEnabled: true,
     updateEnabled: true,
     deleteEnabled: true,
-    transactionalProcessingDelegated: true,
-    writeActivePersistence: 'ZTT_PROJECTS'
+    transactionalProcessingDelegated: true
+}
+
+@UI.headerInfo:
+{
+    typeName: 'Project',
+    typeNamePlural: 'Projects',
+    title.value: 'name',
+    title.label: 'Project'
 }
 
 define view ZTT_C_PROJECTS
@@ -38,13 +46,18 @@ define view ZTT_C_PROJECTS
     @Search.defaultSearchElement: true
     @UI.identification: {position: 10, importance: #HIGH }
     @UI.selectionField.position: 10
+    @UI.dataPoint.title: 'Project code'
+    @ObjectModel.text.element: ['name']
     @Search.ranking: #HIGH
+    @Search.fuzzinessThreshold: 1
     key code,
     
     @ObjectModel.mandatory: true
+    @UI.dataPoint.title: 'Project name'
     @UI.identification: {position: 20, importance: #HIGH }
     @UI.lineItem.position: 20
     @UI.selectionField.position: 20
+    @Search.fuzzinessThreshold: 0.8
     name,
     
     @UI.identification: {position: 30, importance: #MEDIUM }

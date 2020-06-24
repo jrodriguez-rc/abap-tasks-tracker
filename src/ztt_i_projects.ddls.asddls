@@ -27,7 +27,9 @@ define view ZTT_I_PROJECTS
 {
     //ZTT_PROJECTS
     @Search.defaultSearchElement: true
+    @Search.ranking: #HIGH
     @ObjectModel.readOnly: 'EXTERNAL_CALCULATION'
+    @ObjectModel.text.element: ['name']
     key code,
     @Search.defaultSearchElement: true
     name,

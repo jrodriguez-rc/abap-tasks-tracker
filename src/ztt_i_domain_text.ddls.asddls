@@ -1,9 +1,10 @@
 @AbapCatalog.sqlViewName: 'ZTTI_DOM_TEXT'
-@ObjectModel.dataCategory: #TEXT
-@ObjectModel.representativeKey: ['domainName,valuePosition']
 @AccessControl.authorizationCheck: #NOT_REQUIRED
                         
 @Search.searchable: true
+
+@ObjectModel.dataCategory: #TEXT
+@ObjectModel.representativeKey: [ 'domainName', 'valuePosition' ]
 
 define view ZTT_I_DOMAIN_TEXT
     as select from dd07t as textProvider

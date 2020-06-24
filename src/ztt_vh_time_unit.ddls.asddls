@@ -6,8 +6,10 @@
 
 @Search.searchable: true
 
-@ObjectModel.representativeKey: 'timeUnit'
-@ObjectModel.resultSet.sizeCategory: #XS
+@ObjectModel: {
+    representativeKey: 'timeUnit',
+    resultSet.sizeCategory: #XS
+}
 
 @UI.headerInfo.typeName: 'Time Unit'
 @UI.headerInfo.typeNamePlural: 'Time Units'
@@ -15,24 +17,19 @@
 
 define view ZTT_VH_TIME_UNIT
     as select from dd07l
-    association [0..1] to ZTT_I_DOMAIN_TEXT as _text on _text.domainName    = 'ZTT_TIME_UNIT'
+    association [0..*] to ZTT_I_DOMAIN_TEXT as _text on _text.domainName    = 'ZTT_TIME_UNIT'
                                                       and _text.valuePosition = dd07l.valpos
-                                                      and _text.language      = $session.system_language
 {
-
-    @UI.lineItem.position: 10
-    @UI.identification: {position: 10, importance: #HIGH }
-    @UI.selectionField.position: 10
-    @ObjectModel.text.element: 'description'
-    @Search: { defaultSearchElement: true, ranking: #MEDIUM }
+    @ObjectModel.text.association: '_text'
+    @Search.defaultSearchElement: true
+    @Search.ranking: #HIGH
     key cast( dd07l.domvalue_l as ZTT_TIME_UNIT ) as timeUnit,
     
-    @UI.lineItem.position: 20
-    @UI.identification: {position: 20, importance: #MEDIUM }
-    @UI.selectionField.position: 20
-    @Semantics.text: true
-    @Search: { defaultSearchElement: true, ranking: #HIGH, fuzzinessThreshold: 0.7 }
-    _text.shortText as description
+    @Consumption.hidden: true
+    valpos,
+    
+    _text
     
 } where dd07l.domname  = 'ZTT_TIME_UNIT'
     and dd07l.as4local = 'A';
+    

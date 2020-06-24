@@ -26,6 +26,7 @@ define view ZTT_I_USERS
 {
   key usr21.mandt as client,
   key usr21.bname as userName,
+      usr02.ustyp as userType,
       usr21.kostl as costCenter,
       usr21.idadtype as addressType,
       usr21.persnumber as personNumber,
