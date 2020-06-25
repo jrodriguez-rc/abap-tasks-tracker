@@ -3596,42 +3596,126 @@
     </item>
     <item>
      <POS>53</POS>
+     <NAME>OBJECT_MODEL_DELETED_IND</NAME>
+     <TYPE_KIND>C</TYPE_KIND>
+     <LENGTH>1</LENGTH>
+    </item>
+    <item>
+     <POS>54</POS>
      <NAME>LAST_RELEVANT_DDIC_CHANGE</NAME>
      <TYPE_KIND>P</TYPE_KIND>
      <LENGTH>8</LENGTH>
     </item>
     <item>
-     <POS>54</POS>
+     <POS>55</POS>
      <NAME>DRAFT_CLASS</NAME>
      <TYPE_KIND>C</TYPE_KIND>
      <LENGTH>30</LENGTH>
     </item>
     <item>
-     <POS>55</POS>
+     <POS>56</POS>
      <NAME>OBJECT_MDL_LASTSTATECHANGEID</NAME>
      <TYPE_KIND>C</TYPE_KIND>
      <LENGTH>30</LENGTH>
     </item>
     <item>
-     <POS>56</POS>
+     <POS>57</POS>
+     <NAME>DRAFT_DATA_TYPE</NAME>
+     <TYPE_KIND>C</TYPE_KIND>
+     <LENGTH>30</LENGTH>
+    </item>
+    <item>
+     <POS>58</POS>
+     <NAME>OBJECT_MDL_DRAFT_PERSISTENCE</NAME>
+     <TYPE_KIND>C</TYPE_KIND>
+     <LENGTH>30</LENGTH>
+    </item>
+    <item>
+     <POS>59</POS>
+     <NAME>DRAFT_PERSISTENCE_KEY_TYPE</NAME>
+     <TYPE_KIND>C</TYPE_KIND>
+     <LENGTH>1</LENGTH>
+    </item>
+    <item>
+     <POS>60</POS>
+     <NAME>ACTIVE_PERSISTENCE_KEY_TYPE</NAME>
+     <TYPE_KIND>C</TYPE_KIND>
+     <LENGTH>1</LENGTH>
+    </item>
+    <item>
+     <POS>61</POS>
+     <NAME>SEMANTICS_CREATED_AT</NAME>
+     <TYPE_KIND>C</TYPE_KIND>
+     <LENGTH>30</LENGTH>
+    </item>
+    <item>
+     <POS>62</POS>
+     <NAME>SEMANTICS_CREATED_AT_DATE</NAME>
+     <TYPE_KIND>C</TYPE_KIND>
+     <LENGTH>30</LENGTH>
+    </item>
+    <item>
+     <POS>63</POS>
+     <NAME>SEMANTICS_CREATED_AT_TIME</NAME>
+     <TYPE_KIND>C</TYPE_KIND>
+     <LENGTH>30</LENGTH>
+    </item>
+    <item>
+     <POS>64</POS>
+     <NAME>SEMANTICS_CREATED_BY</NAME>
+     <TYPE_KIND>C</TYPE_KIND>
+     <LENGTH>30</LENGTH>
+    </item>
+    <item>
+     <POS>65</POS>
+     <NAME>SEMANTICS_LAST_CHANGED_AT</NAME>
+     <TYPE_KIND>C</TYPE_KIND>
+     <LENGTH>30</LENGTH>
+    </item>
+    <item>
+     <POS>66</POS>
+     <NAME>SEMANTICS_LAST_CHANGED_AT_DATE</NAME>
+     <TYPE_KIND>C</TYPE_KIND>
+     <LENGTH>30</LENGTH>
+    </item>
+    <item>
+     <POS>67</POS>
+     <NAME>SEMANTICS_LAST_CHANGED_AT_TIME</NAME>
+     <TYPE_KIND>C</TYPE_KIND>
+     <LENGTH>30</LENGTH>
+    </item>
+    <item>
+     <POS>68</POS>
+     <NAME>SEMANTICS_LAST_CHANGED_BY</NAME>
+     <TYPE_KIND>C</TYPE_KIND>
+     <LENGTH>30</LENGTH>
+    </item>
+    <item>
+     <POS>69</POS>
+     <NAME>OBJECT_MODEL_DATA_CATEGORY</NAME>
+     <TYPE_KIND>C</TYPE_KIND>
+     <LENGTH>30</LENGTH>
+    </item>
+    <item>
+     <POS>70</POS>
      <NAME>CREATE_USER</NAME>
      <TYPE_KIND>C</TYPE_KIND>
      <LENGTH>12</LENGTH>
     </item>
     <item>
-     <POS>57</POS>
+     <POS>71</POS>
      <NAME>CREATE_TIME</NAME>
      <TYPE_KIND>P</TYPE_KIND>
      <LENGTH>8</LENGTH>
     </item>
     <item>
-     <POS>58</POS>
+     <POS>72</POS>
      <NAME>CHANGE_USER</NAME>
      <TYPE_KIND>C</TYPE_KIND>
      <LENGTH>12</LENGTH>
     </item>
     <item>
-     <POS>59</POS>
+     <POS>73</POS>
      <NAME>CHANGE_TIME</NAME>
      <TYPE_KIND>P</TYPE_KIND>
      <LENGTH>8</LENGTH>
@@ -3996,36 +4080,48 @@
     </item>
     <item>
      <POS>42</POS>
+     <NAME>FEATURE_ANNOTATION</NAME>
+     <TYPE_KIND>C</TYPE_KIND>
+     <LENGTH>255</LENGTH>
+    </item>
+    <item>
+     <POS>43</POS>
+     <NAME>SMART_VALIDATIONS</NAME>
+     <TYPE_KIND>C</TYPE_KIND>
+     <LENGTH>1</LENGTH>
+    </item>
+    <item>
+     <POS>44</POS>
      <NAME>CREATE_USER</NAME>
      <TYPE_KIND>C</TYPE_KIND>
      <LENGTH>12</LENGTH>
     </item>
     <item>
-     <POS>43</POS>
+     <POS>45</POS>
      <NAME>CREATE_TIME</NAME>
      <TYPE_KIND>P</TYPE_KIND>
      <LENGTH>8</LENGTH>
     </item>
     <item>
-     <POS>44</POS>
+     <POS>46</POS>
      <NAME>CHANGE_USER</NAME>
      <TYPE_KIND>C</TYPE_KIND>
      <LENGTH>12</LENGTH>
     </item>
     <item>
-     <POS>45</POS>
+     <POS>47</POS>
      <NAME>CHANGE_TIME</NAME>
      <TYPE_KIND>P</TYPE_KIND>
      <LENGTH>8</LENGTH>
     </item>
     <item>
-     <POS>46</POS>
+     <POS>48</POS>
      <NAME>LAST_CHANGE_USER</NAME>
      <TYPE_KIND>C</TYPE_KIND>
      <LENGTH>12</LENGTH>
     </item>
     <item>
-     <POS>47</POS>
+     <POS>49</POS>
      <NAME>LAST_CHANGE_TIME</NAME>
      <TYPE_KIND>P</TYPE_KIND>
      <LENGTH>8</LENGTH>

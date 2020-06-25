@@ -6,6 +6,7 @@
     <DDLNAME>ZTT_C_ISSUE_TRANSPORT_REQUESTS</DDLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
     <DDTEXT>Consumption: Issue Transport Requests</DDTEXT>
+    <SOURCE_TYPE>V</SOURCE_TYPE>
    </DDLS>
   </asx:values>
  </asx:abap>
