@@ -21,4 +21,4 @@ define view ZTT_VH_USER
     @Search.ranking: #HIGH
     _userInfo.name_text as name
     
-} where userType = 'A' or userType = 'L'
+} where userType = 'A' or userType = 'L' or userType = 'C'

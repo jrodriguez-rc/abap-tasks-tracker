@@ -28,78 +28,64 @@
 
 define view ZTT_C_PROJECTS
     as select from ZTT_I_PROJECTS
-    association [0..*] to ZTT_C_ISSUES     as _issues   on $projection.code = _issues.projectCode
-    association [0..1] to ZTT_VH_TIME_UNIT as _timeUnit on $projection.defaultTimeUnit = _timeUnit.timeUnit
+    association [0..*] to ZTT_C_TASKS as _tasks   on $projection.projectCode = _tasks.projectCode
 {
 
-    @UI.lineItem: [
-     {
-       type: #FOR_ACTION, position: 1, dataAction: 'BOPF:START', label: 'Start project'
-     }
-    ]
-
-    @UI.lineItem.position: 10
-    @ObjectModel.mandatory: true
-    @ObjectModel.readOnly: 'EXTERNAL_CALCULATION'
-    @Search.defaultSearchElement: true
-    @UI.identification: {position: 10, importance: #HIGH }
-    @UI.selectionField.position: 10
-    @UI.dataPoint.title: 'Project code'
-    @ObjectModel.text.element: ['name']
-    @Search.ranking: #HIGH
-    @Search.fuzzinessThreshold: 1
-    key code,
+        @Search: {
+            defaultSearchElement: true,
+            ranking: #HIGH,
+            fuzzinessThreshold: 1
+        }
+        @UI: {
+            lineItem: {
+                position: 10
+            },
+            identification: [{ position: 10, importance: #HIGH }],
+            selectionField.position: 10,
+            dataPoint.title: 'Project code'
+        }
+    key code as projectCode,
     
-    @ObjectModel.mandatory: true
-    @UI.dataPoint.title: 'Project name'
-    @UI.identification: {position: 20, importance: #HIGH }
-    @UI.lineItem.position: 20
-    @UI.selectionField.position: 20
-    @Search.fuzzinessThreshold: 0.8
-    name,
+        @Search.fuzzinessThreshold: 0.8
+        @UI.dataPoint.title: 'Project name'
+        @UI.identification: [ {position: 20, importance: #HIGH },
+                              {position: 20, label: 'Show Tasks', type: #FOR_INTENT_BASED_NAVIGATION, semanticObjectAction: 'tasks' } ]
+        @UI.selectionField.position: 20
+        @UI.lineItem: [ {position: 20, label: 'Show Tasks', type: #FOR_INTENT_BASED_NAVIGATION, semanticObjectAction: 'tasks' } ]
+        @Consumption.semanticObject: 'tasksTracker'
+        name,
+        
+        @Search.defaultSearchElement: true
+        @UI.identification: {position: 40, importance: #MEDIUM }
+        @UI.lineItem.position: 40
+        started_on as startedOn,
+        
+        @UI.identification: {position: 50, importance: #LOW }
+        @UI.lineItem.position: 50
+        ended_on as endedOn,
+        
+        @UI.identification: {position: 60, importance: #LOW }
+        @UI.lineItem.position: 60
+        tr_target as transportTarget,
     
-    @UI.identification: {position: 30, importance: #MEDIUM }
-    @UI.lineItem.position: 30
-    @Consumption.valueHelp:'_timeUnit'
-    @ObjectModel.foreignKey.association: '_timeUnit'
-    default_time_unit as defaultTimeUnit,
+        @UI.identification: {position: 70, importance: #LOW }
+        @UI.lineItem.position: 70
+        cts_project as CTSProject,
     
-    @Search.defaultSearchElement: true
-    @UI.identification: {position: 40, importance: #MEDIUM }
-    @UI.lineItem.position: 40
-    started_on as startedOn,
-    
-    @UI.identification: {position: 50, importance: #LOW }
-    @UI.lineItem.position: 50
-    ended_on as endedOn,
-    
-    @ObjectModel.readOnly: true
-    @UI.identification: {position: 70, importance: #LOW }
-    @UI.lineItem.position: 70
-    @Consumption.hidden: true
-    crea_date_time as createdOn,
-    
-    @ObjectModel.readOnly: true
-    @UI.identification: {position: 80, importance: #LOW }
-    @UI.lineItem.position: 80
-    @Consumption.hidden: true
-    crea_uname as createdBy,
-    
-    @ObjectModel.readOnly: true
-    @UI.identification: {position: 90, importance: #LOW }
-    @UI.lineItem.position: 90
-    @Consumption.hidden: true
-    lchg_date_time as changedOn,
-    
-    @ObjectModel.readOnly: true
-    @UI.identification: {position: 100, importance: #LOW }
-    @UI.lineItem.position: 100
-    @Consumption.hidden: true
-    lchg_uname as changedBy,
-    
-    /* Associations */
-    @UI.fieldGroup: [{qualifier: 'code', groupLabel: 'code', position: 60, importance: #HIGH }]
-    @ObjectModel.association.type: #TO_COMPOSITION_CHILD
-    _issues,
-    _timeUnit
+        @Consumption.hidden: true
+        crea_date_time as createdOn,
+        
+        @Consumption.hidden: true
+        crea_uname as createdBy,
+        
+        @Consumption.hidden: true
+        lchg_date_time as changedOn,
+        
+        @Consumption.hidden: true
+        lchg_uname as changedBy,
+        
+        /* Associations */
+//        @UI.fieldGroup: [{qualifier: 'code', groupLabel: 'code', position: 60, importance: #HIGH }]
+//        @ObjectModel.association.type: #TO_COMPOSITION_CHILD
+        _tasks
 }

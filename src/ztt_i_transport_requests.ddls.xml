@@ -6,7 +6,6 @@
     <DDLNAME>ZTT_I_TRANSPORT_REQUESTS</DDLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
     <DDTEXT>Transport Requests</DDTEXT>
-    <SOURCE_TYPE>V</SOURCE_TYPE>
    </DDLS>
   </asx:values>
  </asx:abap>

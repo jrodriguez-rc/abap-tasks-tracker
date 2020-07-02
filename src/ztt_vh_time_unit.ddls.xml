@@ -6,7 +6,6 @@
     <DDLNAME>ZTT_VH_TIME_UNIT</DDLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
     <DDTEXT>Time Unit Value Help</DDTEXT>
-    <SOURCE_TYPE>V</SOURCE_TYPE>
    </DDLS>
   </asx:values>
  </asx:abap>

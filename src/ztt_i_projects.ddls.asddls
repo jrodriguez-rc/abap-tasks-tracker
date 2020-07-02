@@ -20,31 +20,48 @@
 
 define view ZTT_I_PROJECTS
     as select from ztt_projects
-    association [0..*] to ZTT_I_ISSUES as _issues
-        on $projection.code = _issues.project_code
-    association [0..1] to ZTT_VH_TIME_UNIT as _timeUnit
-        on $projection.default_time_unit = _timeUnit.timeUnit
+    association [0..*] to ZTT_I_TASKS as _tasks     on $projection.code = _tasks.project_code
+    association [0..1] to ZTT_VH_USER as _createdBy on $projection.crea_uname = _createdBy.userName
+    association [0..1] to ZTT_VH_USER as _updatedBy on $projection.lchg_uname = _updatedBy.userName
 {
-    //ZTT_PROJECTS
-    @Search.defaultSearchElement: true
-    @Search.ranking: #HIGH
-    @ObjectModel.readOnly: 'EXTERNAL_CALCULATION'
-    @ObjectModel.text.element: ['name']
+
+        @Search.defaultSearchElement: true
+        @Search.ranking: #HIGH
+        @ObjectModel.readOnly: 'EXTERNAL_CALCULATION'
+        @ObjectModel.text.element: ['name']
+        @ObjectModel.mandatory: true
     key code,
-    @Search.defaultSearchElement: true
-    name,
-    @ObjectModel.foreignKey.association: '_timeUnit'
-    default_time_unit,
-    started_on,
-    ended_on,
-    crea_date_time,
-    crea_uname,
-    lchg_date_time,
-    lchg_uname,
     
-    /* Associations */
-    @ObjectModel.association.type: #TO_COMPOSITION_CHILD
-    _issues,
-    _timeUnit
+        @Search.defaultSearchElement: true
+        @ObjectModel.mandatory: true
+        name,
+        
+        started_on,
+        
+        ended_on,
+        
+        tr_target,
+    
+        cts_project,
+        
+        @ObjectModel.readOnly: true
+        crea_date_time,
+        
+        @ObjectModel.readOnly: true
+        @ObjectModel.foreignKey.association: '_createdBy'
+        crea_uname,
+        
+        @ObjectModel.readOnly: true
+        lchg_date_time,
+        
+        @ObjectModel.readOnly: true
+        @ObjectModel.foreignKey.association: '_updatedBy'
+        lchg_uname,
+        
+        /* Associations */
+//        @ObjectModel.association.type: #TO_COMPOSITION_CHILD
+        _tasks,
+        _createdBy,
+        _updatedBy
     
 }
