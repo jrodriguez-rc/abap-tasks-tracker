@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SCP1" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <SCP1>
+    <SCPRATTR>
+     <ID>ZTT_CONFIG</ID>
+     <TYPE>TMV</TYPE>
+     <REFTYPE>TRAN</REFTYPE>
+     <REFNAME>RCDK900205</REFNAME>
+     <ORGID>/CUSTOMER/</ORGID>
+     <COMPONENT>SAP_BASIS</COMPONENT>
+     <MINRELEASE>750</MINRELEASE>
+     <MAXRELEASE>*</MAXRELEASE>
+    </SCPRATTR>
+    <SCPRTEXT>
+     <SCPRTEXT>
+      <LANGU>E</LANGU>
+      <ID>ZTT_CONFIG</ID>
+      <VERSION>N</VERSION>
+      <TEXT>Tasks Tracker Configuration</TEXT>
+     </SCPRTEXT>
+    </SCPRTEXT>
+    <SCPRVALS>
+     <SCPRVALS>
+      <ID>ZTT_CONFIG</ID>
+      <VERSION>N</VERSION>
+      <TABLENAME>/UI2/V_SEMOBJC</TABLENAME>
+      <RECNUMBER>1</RECNUMBER>
+      <FIELDNAME>SEM_OBJ</FIELDNAME>
+      <FLAG>FKY</FLAG>
+      <VALUE>tasksTracker</VALUE>
+     </SCPRVALS>
+    </SCPRVALS>
+    <SCPRVALL>
+     <SCPRVALL>
+      <ID>ZTT_CONFIG</ID>
+      <VERSION>N</VERSION>
+      <TABLENAME>/UI2/V_SEMOBJC</TABLENAME>
+      <RECNUMBER>1</RECNUMBER>
+      <FIELDNAME>SEM_OBJ_NAME</FIELDNAME>
+      <LANGU>E</LANGU>
+      <FLAG>USE</FLAG>
+      <VALUE>Tasks Tracker</VALUE>
+     </SCPRVALL>
+     <SCPRVALL>
+      <ID>ZTT_CONFIG</ID>
+      <VERSION>N</VERSION>
+      <TABLENAME>/UI2/V_SEMOBJC</TABLENAME>
+      <RECNUMBER>1</RECNUMBER>
+      <FIELDNAME>SEM_OBJ_TEXT</FIELDNAME>
+      <LANGU>E</LANGU>
+      <FLAG>USE</FLAG>
+      <VALUE>Tasks Tracker</VALUE>
+     </SCPRVALL>
+    </SCPRVALL>
+    <SCPRRECA>
+     <SCPRRECA>
+      <ID>ZTT_CONFIG</ID>
+      <VERSION>N</VERSION>
+      <TABLENAME>/UI2/V_SEMOBJC</TABLENAME>
+      <RECNUMBER>1</RECNUMBER>
+      <OBJECTNAME>/UI2/V_SEMOBJC</OBJECTNAME>
+      <OBJECTTYPE>V</OBJECTTYPE>
+      <ACTIVITY>/UI2/FLP_SEMOBJ</ACTIVITY>
+     </SCPRRECA>
+    </SCPRRECA>
+   </SCP1>
+  </asx:values>
+ </asx:abap>
+</abapGit>
