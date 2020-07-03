@@ -116,28 +116,10 @@
             "allowReadOnly": true
         },
         "abapdoc": true,
-        "class_attribute_names": {
-            "ignoreExceptions": true,
-            "statics": "^G._.*$",
-            "instance": "^M._.*$"
-        },
         "local_class_naming": {
             "exception": "^LCL_.*$",
             "local": "^LCL_.*$",
             "test": "^LTCL_.*$"
-        },
-        "local_variable_names": {
-            "expectedData": "^L._.*$",
-            "expectedConstant": "^LC_.*$",
-            "expectedFS": "^<L._.*>$"
-        },
-        "method_parameter_names": {
-            "ignoreExceptions": true,
-            "importing": "^I._.*$",
-            "exporting": "^E._.*$",
-            "returning": "^R._.*$",
-            "changing": "^C._.*$",
-            "ignoreNames": []
         },
         "object_naming": {
             "clas": "^ZC(L|X)(|\\_IM|\\_DEF|\\_FB)\\_TT\\_",
