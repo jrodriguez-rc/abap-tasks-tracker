@@ -1,0 +1,30 @@
+DATE                                              20200703                                          111032
+RELEASE                                           750
+LOADED_AGRS                                       ZTASKS_TRACKER
+AGR_DEFINE                                        100ZTASKS_TRACKER                                              JRODRIGUEZ  20200703105919000000000000000JRODRIGUEZ  20200703105939000000000000000
+AGR_TEXTS                                         100ZTASKS_TRACKER                E00000Tasks Tracker
+AGR_FLAGS                                         100ZTASKS_TRACKER                COLL_AGR  JRODRIGUEZ  20200703105919JRODRIGUEZ  20200703105919
+AGR_FLAGS                                         100ZTASKS_TRACKER                DEVCLASS  JRODRIGUEZ  20200703105919JRODRIGUEZ  20200703105919
+AGR_FLAGS                                         100ZTASKS_TRACKER                FORCE_YEL JRODRIGUEZ  20200703110739JRODRIGUEZ  20200703110739
+AGR_FLAGS                                         100ZTASKS_TRACKER                MASTER_LANJRODRIGUEZ  20200703105919JRODRIGUEZ  20200703105919E
+AGR_FLAGS                                         100ZTASKS_TRACKER                RESP_USER JRODRIGUEZ  20200703105919JRODRIGUEZ  20200703105919
+AGR_BUFFI                                         100ZTASKS_TRACKER                00000002WX-SAP-UI2-CATALOGPAGE:ZTASKS_TRACKER?AUTH_DEFAULTS=X&DEST_FES=&FCC_CATALOG=
+AGR_BUFFI                                         100ZTASKS_TRACKER                00000004WOTSERVICE             3273592FE22BE6AE95BD706638F6DAHT
+AGR_BUFFI                                         100ZTASKS_TRACKER                00000005WOTSERVICE             95031684404C7B7F024E201EC73A4BHT
+AGR_BUFFI                                         100ZTASKS_TRACKER                00000006WOTSERVICE             D5F4A85E043C2ECB975350C9BF5299HT
+AGR_BUFFI                                         100ZTASKS_TRACKER                00000007WOTSERVICE             39E8CB80555895F6058DAB777FDB09HT
+AGR_BUFFI                                         100ZTASKS_TRACKER                00000008Wsap-ui2-group:ZTASKS_TRACKER
+AGR_HIER                                          100ZTASKS_TRACKER                0000000200000001X00000010OTCAT_PROVIDER                                    01                                X                                         0000000000
+AGR_HIER                                          100ZTASKS_TRACKER                0000000400000002 00000010OTSERVICE                                         02                                X                                         0000000000
+AGR_HIER                                          100ZTASKS_TRACKER                0000000500000002 00000020OTSERVICE                                         02                                X                                         0000000000
+AGR_HIER                                          100ZTASKS_TRACKER                0000000600000002 00000030OTSERVICE                                         02                                X                                         0000000000
+AGR_HIER                                          100ZTASKS_TRACKER                0000000700000002 00000040OTSERVICE                                         02                                X                                         0000000000
+AGR_HIER                                          100ZTASKS_TRACKER                0000000800000001 00000020OTGROUP_PROVIDER                                  01                                X                                         0000000000
+AGR_HIERT                                         100ZTASKS_TRACKER                E00000002Tasks Tracker
+AGR_HIERT                                         100ZTASKS_TRACKER                E00000004R3TR IWSG ZTT_C_PROJECTS_CDS_0001
+AGR_HIERT                                         100ZTASKS_TRACKER                E00000005R3TR IWSG ZTT_C_TASKS_CDS_0001
+AGR_HIERT                                         100ZTASKS_TRACKER                E00000006R3TR IWSV ZTT_C_PROJECTS_CDS                 0001
+AGR_HIERT                                         100ZTASKS_TRACKER                E00000007R3TR IWSV ZTT_C_TASKS_CDS                    0001
+AGR_HIERT                                         100ZTASKS_TRACKER                E00000008Tasks Tracker
+AGR_TIME                                          100ZTASKS_TRACKER                MENU      JRODRIGUEZ  20200703105939000000000000000JRODRIGUEZ  20200703105939000000000000000
+AGR_LSD                                           100ZTASKS_TRACKER                                              E
