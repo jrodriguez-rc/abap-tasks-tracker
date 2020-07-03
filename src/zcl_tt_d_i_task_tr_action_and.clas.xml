@@ -3,9 +3,9 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <VSEOCLASS>
-    <CLSNAME>ZCL_TT_D_I_PROJECTS_ACTION_AND</CLSNAME>
+    <CLSNAME>ZCL_TT_D_I_TASK_TR_ACTION_AND</CLSNAME>
     <LANGU>E</LANGU>
-    <DESCRIPT>Project action and field control</DESCRIPT>
+    <DESCRIPT>Task transport request action and field control</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>

@@ -30,7 +30,7 @@ define view ZTT_I_TASK_TRANSPORT_REQUEST
         @Search.defaultSearchElement: true
         @ObjectModel: {
             mandatory: true,
-            readOnly: 'true',
+            readOnly: true,
             text.association: '_project',
             foreignKey.association: '_project'
         }
@@ -39,16 +39,16 @@ define view ZTT_I_TASK_TRANSPORT_REQUEST
         @Search.defaultSearchElement: true
         @ObjectModel: {
             mandatory: true,
-            readOnly: 'true',
-            text.association: '_issue',
-            foreignKey.association: '_issue'
+            readOnly: true,
+            text.association: '_task',
+            foreignKey.association: '_task'
         }
     key task_code,
     
         @Search.ranking: #HIGH
         @ObjectModel: {
             mandatory: true,
-            readOnly: 'true',
+            readOnly: 'EXTERNAL_CALCULATION',
             text.association: '_request',
             foreignKey.association: '_request'
         }
