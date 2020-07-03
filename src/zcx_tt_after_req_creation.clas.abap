@@ -4,6 +4,9 @@ CLASS zcx_tt_after_req_creation DEFINITION
   CREATE PUBLIC .
 
   PUBLIC SECTION.
+    "! <p class="shorttext synchronized" lang="en">Raise exception from system variables</p>
+    "!
+    "! @raising zcx_tt_after_req_creation | <p class="shorttext synchronized" lang="en">After request creation exc.</p>
     CLASS-METHODS raise_syst_after_req_creation
       RAISING
         zcx_tt_after_req_creation.

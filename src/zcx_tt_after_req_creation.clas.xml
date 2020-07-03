@@ -19,6 +19,12 @@
      <LANGU>E</LANGU>
      <DESCRIPT>CONSTRUCTOR</DESCRIPT>
     </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCX_TT_AFTER_REQ_CREATION</CLSNAME>
+     <CMPNAME>RAISE_SYST_AFTER_REQ_CREATION</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Raise exception from system variables</DESCRIPT>
+    </SEOCOMPOTX>
    </DESCRIPTIONS>
   </asx:values>
  </asx:abap>

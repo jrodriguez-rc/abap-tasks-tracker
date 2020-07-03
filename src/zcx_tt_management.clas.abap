@@ -9,6 +9,7 @@ CLASS zcx_tt_management DEFINITION
     INTERFACES if_t100_message .
 
     CONSTANTS:
+      "! <p class="shorttext synchronized" lang="en">Project is mandatory</p>
       BEGIN OF project_mandatory,
         msgid TYPE symsgid VALUE 'ZTT_TASK',
         msgno TYPE symsgno VALUE '001',
@@ -38,10 +39,21 @@ CLASS zcx_tt_management DEFINITION
       CHANGING
         !bo_messages  TYPE REF TO /bobf/if_frw_message.
 
+    "! <p class="shorttext synchronized" lang="en">Raise exception from system variables</p>
+    "!
+    "! @raising zcx_tt_after_req_creation | <p class="shorttext synchronized" lang="en">Tasks Tracker management exc</p>
     CLASS-METHODS raise_syst
       RAISING
         zcx_tt_management.
 
+    "! <p class="shorttext synchronized" lang="en">CONSTRUCTOR</p>
+    "!
+    "! @parameter message_key   | <p class="shorttext synchronized" lang="en">Text ID</p>
+    "! @parameter previous | <p class="shorttext synchronized" lang="en">Previous exception</p>
+    "! @parameter text_attr1    | <p class="shorttext synchronized" lang="en">Message Text 1</p>
+    "! @parameter text_attr2    | <p class="shorttext synchronized" lang="en">Message Text 2</p>
+    "! @parameter text_attr3    | <p class="shorttext synchronized" lang="en">Message Text 3</p>
+    "! @parameter text_attr4    | <p class="shorttext synchronized" lang="en">Message Text 4</p>
     METHODS constructor
       IMPORTING
         !message_key LIKE if_t100_message=>t100key OPTIONAL

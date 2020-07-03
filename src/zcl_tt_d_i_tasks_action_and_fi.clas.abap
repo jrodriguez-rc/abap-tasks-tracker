@@ -42,16 +42,16 @@ CLASS zcl_tt_d_i_tasks_action_and_fi IMPLEMENTATION.
 
   METHOD /bobf/if_frw_determination~execute.
 
-    CASE is_ctx-node_key.
-      WHEN zif_tt_i_tasks_c=>sc_node-ztt_i_tasks.
-        tasks( EXPORTING is_ctx        = is_ctx
-                         it_key        = it_key
-                         io_read       = io_read
-                         io_modify     = io_modify
-               IMPORTING eo_message    = eo_message
-                         et_failed_key = et_failed_key ).
+    IF is_ctx-node_key = zif_tt_i_tasks_c=>sc_node-ztt_i_tasks.
 
-    ENDCASE.
+      tasks( EXPORTING is_ctx        = is_ctx
+                       it_key        = it_key
+                       io_read       = io_read
+                       io_modify     = io_modify
+             IMPORTING eo_message    = eo_message
+                       et_failed_key = et_failed_key ).
+
+    ENDIF.
 
   ENDMETHOD.
 
