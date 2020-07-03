@@ -28,6 +28,15 @@ CLASS zcx_tt_management DEFINITION
     "! <p class="shorttext synchronized" lang="en">Text 4</p>
     DATA text4 TYPE sstring .
 
+    "! <p class="shorttext synchronized" lang="en">Collect exception to BOPF messages</p>
+    "!
+    "! @parameter exception | <p class="shorttext synchronized" lang="en">Exception</p>
+    "! @parameter message_type | <p class="shorttext synchronized" lang="en">Message type</p>
+    "! @parameter node | <p class="shorttext synchronized" lang="en">Node</p>
+    "! @parameter key | <p class="shorttext synchronized" lang="en">Key</p>
+    "! @parameter attribute | <p class="shorttext synchronized" lang="en">Attribute</p>
+    "! @parameter lifetime | <p class="shorttext synchronized" lang="en">Lifetime</p>
+    "! @parameter bo_messages | <p class="shorttext synchronized" lang="en">BOPF Messages</p>
     CLASS-METHODS collect_bo_message
       IMPORTING
         !exception    TYPE REF TO zcx_tt_management
