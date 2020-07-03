@@ -5,6 +5,7 @@
    <VSEOCLASS>
     <CLSNAME>ZCL_TT_D_TASK_TR_AT_CREATION</CLSNAME>
     <LANGU>E</LANGU>
+    <DESCRIPT>Determination: Task transport request at creation</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>

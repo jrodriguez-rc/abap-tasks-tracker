@@ -1,3 +1,4 @@
+"! <p class="shorttext synchronized" lang="en">Determination: Task transport request at creation</p>
 CLASS zcl_tt_d_task_tr_at_creation DEFINITION
   PUBLIC
   INHERITING FROM /bobf/cl_lib_d_supercl_simple
@@ -9,6 +10,10 @@ CLASS zcl_tt_d_task_tr_at_creation DEFINITION
         REDEFINITION.
 
   PROTECTED SECTION.
+    "! <p class="shorttext synchronized" lang="en"></p>
+    "!
+    "! @parameter request | <p class="shorttext synchronized" lang="en"></p>
+    "! @raising cx_uuid_error | <p class="shorttext synchronized" lang="en"></p>
     METHODS fill
       CHANGING
         request TYPE zstti_task_transport_request
@@ -74,7 +79,7 @@ CLASS zcl_tt_d_task_tr_at_creation IMPLEMENTATION.
     mi_read->retrieve_by_association(
       EXPORTING iv_node                 = ms_context-node_key
                 it_key                  = VALUE #( ( key = request-key ) )
-                iv_association          = zif_tt_i_projects_c=>sc_association-ztt_i_issue_transport_requests-to_parent
+                iv_association          = zif_tt_i_tasks_c=>sc_association-ztt_i_task_transport_request-to_parent
                 iv_fill_data            = abap_true
       IMPORTING et_data                 = tasks ).
 
