@@ -13,12 +13,9 @@ CLASS zcl_tt_d_task_tr_at_creation DEFINITION
     "! <p class="shorttext synchronized" lang="en"></p>
     "!
     "! @parameter request | <p class="shorttext synchronized" lang="en"></p>
-    "! @raising cx_uuid_error | <p class="shorttext synchronized" lang="en"></p>
     METHODS fill
       CHANGING
-        request TYPE zstti_task_transport_request
-      RAISING
-        cx_uuid_error.
+        request TYPE zstti_task_transport_request.
 
   PRIVATE SECTION.
     DATA:
@@ -55,13 +52,7 @@ CLASS zcl_tt_d_task_tr_at_creation IMPLEMENTATION.
 
     LOOP AT requests INTO DATA(request) WHERE project_code IS INITIAL.
 
-      TRY.
-          fill( CHANGING request = request ).
-        CATCH cx_uuid_error INTO DATA(lx_uuid_error).
-          eo_message->add_exception( lx_uuid_error ).
-          et_failed_key = it_key.
-          RETURN.
-      ENDTRY.
+      fill( CHANGING request = request ).
 
       io_modify->update( iv_node = is_ctx-node_key
                          iv_key  = request-key
