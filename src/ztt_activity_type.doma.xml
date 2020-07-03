@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DOMA" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD01V>
+    <DOMNAME>ZTT_ACTIVITY_TYPE</DOMNAME>
+    <DDLANGUAGE>E</DDLANGUAGE>
+    <DATATYPE>CHAR</DATATYPE>
+    <LENG>000010</LENG>
+    <OUTPUTLEN>000010</OUTPUTLEN>
+    <VALEXI>X</VALEXI>
+    <DDTEXT>Activity Type</DDTEXT>
+   </DD01V>
+   <DD07V_TAB>
+    <DD07V>
+     <DOMNAME>ZTT_ACTIVITY_TYPE</DOMNAME>
+     <VALPOS>0001</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DDTEXT>No specified</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZTT_ACTIVITY_TYPE</DOMNAME>
+     <VALPOS>0002</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>ANALYSIS</DOMVALUE_L>
+     <DDTEXT>Analysis</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZTT_ACTIVITY_TYPE</DOMNAME>
+     <VALPOS>0003</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>CONFIG</DOMVALUE_L>
+     <DDTEXT>Configuration</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZTT_ACTIVITY_TYPE</DOMNAME>
+     <VALPOS>0004</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>DEVELOP</DOMVALUE_L>
+     <DDTEXT>Development</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZTT_ACTIVITY_TYPE</DOMNAME>
+     <VALPOS>0005</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>DOCUMENT</DOMVALUE_L>
+     <DDTEXT>Documentation</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZTT_ACTIVITY_TYPE</DOMNAME>
+     <VALPOS>0006</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>REVIEW</DOMVALUE_L>
+     <DDTEXT>Review</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZTT_ACTIVITY_TYPE</DOMNAME>
+     <VALPOS>0007</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>SUPPORT</DOMVALUE_L>
+     <DDTEXT>Support</DDTEXT>
+    </DD07V>
+   </DD07V_TAB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

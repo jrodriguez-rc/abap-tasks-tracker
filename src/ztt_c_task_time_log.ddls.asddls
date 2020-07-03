@@ -133,6 +133,29 @@ define view ZTT_C_TASK_TIME_LOG
         }
         @UI: {
             identification: {
+                position: 45,
+                importance: #MEDIUM
+            },
+            lineItem: {
+                position: 45,
+                importance: #MEDIUM
+            },
+            selectionField.position: 45,
+            dataPoint.title: 'Activity Type'
+        }
+        @Consumption.valueHelp: '_activityType'
+        activity_type as activityType,
+
+        @ObjectModel: { 
+            mandatory: true
+        }
+        @Search: {
+            defaultSearchElement: true,
+            ranking: #HIGH,
+            fuzzinessThreshold: 1
+        }
+        @UI: {
+            identification: {
                 position: 50,
                 importance: #MEDIUM
             },
@@ -194,6 +217,7 @@ define view ZTT_C_TASK_TIME_LOG
         _project,
         @ObjectModel.association.type: [#TO_COMPOSITION_ROOT,#TO_COMPOSITION_PARENT]
         _task,
+        _activityType,
         _createUserInfo
 
 }
