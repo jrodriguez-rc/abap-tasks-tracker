@@ -1,4 +1,4 @@
-"! <p class="shorttext synchronized" lang="en">Generated</p>
+"! <p class="shorttext synchronized" lang="en">Task action and field control</p>
 CLASS zcl_tt_d_i_tasks_action_and_fi DEFINITION
   PUBLIC
   INHERITING FROM /bobf/cl_lib_d_supercl_simple
@@ -10,6 +10,15 @@ CLASS zcl_tt_d_i_tasks_action_and_fi DEFINITION
         REDEFINITION.
 
   PROTECTED SECTION.
+    "! <p class="shorttext synchronized" lang="en">Task node</p>
+    "!
+    "! @parameter is_ctx | <p class="shorttext synchronized" lang="en">Context Information for Determinations</p>
+    "! @parameter it_key | <p class="shorttext synchronized" lang="en">Key Table</p>
+    "! @parameter io_read | <p class="shorttext synchronized" lang="en">Read operations</p>
+    "! @parameter io_modify | <p class="shorttext synchronized" lang="en">Change operations</p>
+    "! @parameter eo_message | <p class="shorttext synchronized" lang="en">Messages</p>
+    "! @parameter et_failed_key | <p class="shorttext synchronized" lang="en">Failed keys</p>
+    "! @raising /bobf/cx_frw | <p class="shorttext synchronized" lang="en">BOPF Exception</p>
     METHODS tasks
       IMPORTING
         is_ctx        TYPE /bobf/s_frw_ctx_det

@@ -5,12 +5,20 @@
    <VSEOCLASS>
     <CLSNAME>ZCL_TT_D_I_PROJECTS_ACTION_AND</CLSNAME>
     <LANGU>E</LANGU>
-    <DESCRIPT>Generated</DESCRIPT>
+    <DESCRIPT>Project action and field control</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>
     <UNICODE>X</UNICODE>
    </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_TT_D_I_PROJECTS_ACTION_AND</CLSNAME>
+     <CMPNAME>PROJECTS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Project node</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
   </asx:values>
  </asx:abap>
 </abapGit>

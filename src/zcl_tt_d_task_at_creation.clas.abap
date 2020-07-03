@@ -1,3 +1,4 @@
+"! <p class="shorttext synchronized" lang="en">Determination: Task at creation</p>
 CLASS zcl_tt_d_task_at_creation DEFINITION
   PUBLIC
   INHERITING FROM /bobf/cl_lib_d_supercl_simple
@@ -9,6 +10,9 @@ CLASS zcl_tt_d_task_at_creation DEFINITION
         REDEFINITION.
 
   PROTECTED SECTION.
+    "! <p class="shorttext synchronized" lang="en">Fill content</p>
+    "!
+    "! @parameter task | <p class="shorttext synchronized" lang="en">Task</p>
     METHODS fill
       CHANGING
         task TYPE zstti_tasks.

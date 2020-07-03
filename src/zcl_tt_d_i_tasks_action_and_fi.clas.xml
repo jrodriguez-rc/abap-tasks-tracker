@@ -5,12 +5,20 @@
    <VSEOCLASS>
     <CLSNAME>ZCL_TT_D_I_TASKS_ACTION_AND_FI</CLSNAME>
     <LANGU>E</LANGU>
-    <DESCRIPT>Generated</DESCRIPT>
+    <DESCRIPT>Task action and field control</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>
     <UNICODE>X</UNICODE>
    </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_TT_D_I_TASKS_ACTION_AND_FI</CLSNAME>
+     <CMPNAME>TASKS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Task node</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
   </asx:values>
  </asx:abap>
 </abapGit>

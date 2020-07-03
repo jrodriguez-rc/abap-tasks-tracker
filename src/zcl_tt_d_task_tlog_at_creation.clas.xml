@@ -5,11 +5,20 @@
    <VSEOCLASS>
     <CLSNAME>ZCL_TT_D_TASK_TLOG_AT_CREATION</CLSNAME>
     <LANGU>E</LANGU>
+    <DESCRIPT>Determination: Task time log at creation</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>
     <UNICODE>X</UNICODE>
    </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_TT_D_TASK_TLOG_AT_CREATION</CLSNAME>
+     <CMPNAME>FILL</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Fill content</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
   </asx:values>
  </asx:abap>
 </abapGit>

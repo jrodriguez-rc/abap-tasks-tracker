@@ -1,3 +1,4 @@
+"! <p class="shorttext synchronized" lang="en">Action: Lock tasks</p>
 CLASS zcl_tt_a_lock_i_tasks DEFINITION
   PUBLIC
   INHERITING FROM /bobf/cl_lib_a_lock_active
@@ -9,7 +10,9 @@ CLASS zcl_tt_a_lock_i_tasks DEFINITION
         REDEFINITION.
 
   PROTECTED SECTION.
+
   PRIVATE SECTION.
+
 ENDCLASS.
 
 

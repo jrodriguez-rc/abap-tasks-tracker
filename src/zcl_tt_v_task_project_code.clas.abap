@@ -1,3 +1,4 @@
+"! <p class="shorttext synchronized" lang="en">Validation: Task project code</p>
 CLASS zcl_tt_v_task_project_code DEFINITION
   PUBLIC
   INHERITING FROM /bobf/cl_lib_v_supercl_simple

@@ -5,6 +5,7 @@
    <VSEOCLASS>
     <CLSNAME>ZCL_TT_A_TASK_CREATE_TR</CLSNAME>
     <LANGU>E</LANGU>
+    <DESCRIPT>Action: Create transport request (ABSTRACT)</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>

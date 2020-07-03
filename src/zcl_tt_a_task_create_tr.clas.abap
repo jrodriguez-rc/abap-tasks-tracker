@@ -1,3 +1,4 @@
+"! <p class="shorttext synchronized" lang="en">Action: Create transport request (ABSTRACT)</p>
 CLASS zcl_tt_a_task_create_tr DEFINITION
   PUBLIC
   INHERITING FROM /bobf/cl_lib_a_supercl_simple

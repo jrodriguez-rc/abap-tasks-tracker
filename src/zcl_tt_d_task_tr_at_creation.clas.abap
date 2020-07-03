@@ -19,8 +19,8 @@ CLASS zcl_tt_d_task_tr_at_creation DEFINITION
 
   PRIVATE SECTION.
     DATA:
-      mi_read    TYPE REF TO /bobf/if_frw_read,
-      ms_context TYPE /bobf/s_frw_ctx_det.
+      read    TYPE REF TO /bobf/if_frw_read,
+      context TYPE /bobf/s_frw_ctx_det.
 
 ENDCLASS.
 
@@ -47,8 +47,8 @@ CLASS zcl_tt_d_task_tr_at_creation IMPLEMENTATION.
                                  it_key  = it_key
                        IMPORTING et_data = requests ).
 
-    mi_read = io_read.
-    ms_context = is_ctx.
+    read = io_read.
+    context = is_ctx.
 
     LOOP AT requests INTO DATA(request) WHERE project_code IS INITIAL.
 
@@ -67,8 +67,8 @@ CLASS zcl_tt_d_task_tr_at_creation IMPLEMENTATION.
 
     DATA: tasks TYPE zttti_tasks.
 
-    mi_read->retrieve_by_association(
-      EXPORTING iv_node                 = ms_context-node_key
+    read->retrieve_by_association(
+      EXPORTING iv_node                 = context-node_key
                 it_key                  = VALUE #( ( key = request-key ) )
                 iv_association          = zif_tt_i_tasks_c=>sc_association-ztt_i_task_transport_request-to_parent
                 iv_fill_data            = abap_true

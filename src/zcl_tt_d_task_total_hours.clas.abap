@@ -1,3 +1,4 @@
+"! <p class="shorttext synchronized" lang="en">Determination: Calculate task time log hours</p>
 CLASS zcl_tt_d_task_total_hours DEFINITION
   PUBLIC
   INHERITING FROM /bobf/cl_lib_d_supercl_simple
@@ -9,6 +10,11 @@ CLASS zcl_tt_d_task_total_hours DEFINITION
         REDEFINITION.
 
   PROTECTED SECTION.
+    "! <p class="shorttext synchronized" lang="en">Calculate hours</p>
+    "!
+    "! @parameter from_ts | <p class="shorttext synchronized" lang="en">Time stamp from</p>
+    "! @parameter to_ts | <p class="shorttext synchronized" lang="en">Time stamp to</p>
+    "! @parameter total_hours | <p class="shorttext synchronized" lang="en">Hours</p>
     METHODS calc_hours
       IMPORTING
         from_ts            TYPE timestampl
