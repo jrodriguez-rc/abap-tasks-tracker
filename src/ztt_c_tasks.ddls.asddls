@@ -27,17 +27,17 @@
 
 define view ZTT_C_TASKS
     as select from ZTT_I_TASKS
-    association [1] to ZTT_C_PROJECTS          as _project            on $projection.projectCode = _project.projectCode
-    association [0..1] to ZTT_VH_USER          as _functionalUserInfo on $projection.functionalResponsible = _functionalUserInfo.userName
-    association [0..1] to ZTT_VH_USER          as _technicalUserInfo  on $projection.technicalResponsible = _technicalUserInfo.userName
-    association [0..1] to ZTT_VH_TIME_UNIT     as _timeUnit           on $projection.timeUnit = _timeUnit.timeUnit
-    association [0..1] to ZTT_I_STATUS         as _status             on $projection.status = _status.status
-    association [0..*] to ZTT_C_TASK_COMMENTS  as _comments           on $projection.code        = _comments.taskCode
-                                                                       and $projection.projectCode = _comments.projectCode
-    association [0..*] to ZTT_C_TASK_TRANSPORT_REQUEST as _transportRequests on $projection.code        = _transportRequests.taskCode
-                                                                              and $projection.projectCode = _transportRequests.projectCode
-    association [0..*] to ZTT_C_TASK_TIME_LOG          as _timeLog           on $projection.code                  = _timeLog.taskCode
-                                                                               and $projection.projectCode           = _timeLog.projectCode
+    association [1] to ZTT_C_PROJECTS                  as _project            on $projection.projectCode = _project.projectCode
+    association [0..1] to ZTT_VH_USER                  as _functionalUserInfo on $projection.functionalResponsible = _functionalUserInfo.userName
+    association [0..1] to ZTT_VH_USER                  as _technicalUserInfo  on $projection.technicalResponsible = _technicalUserInfo.userName
+    association [0..1] to ZTT_VH_TIME_UNIT             as _timeUnit           on $projection.timeUnit    = _timeUnit.timeUnit
+    association [0..1] to ZTT_I_STATUS                 as _status             on $projection.status      = _status.status
+    association [0..*] to ZTT_C_TASK_COMMENTS          as _comments           on $projection.code        = _comments.taskCode
+                                                                             and $projection.projectCode = _comments.projectCode
+    association [0..*] to ZTT_C_TASK_TRANSPORT_REQUEST as _transportRequests  on $projection.code        = _transportRequests.taskCode
+                                                                             and $projection.projectCode = _transportRequests.projectCode
+    association [0..*] to ZTT_C_TASK_TIME_LOG          as _timeLog            on $projection.code        = _timeLog.taskCode
+                                                                             and $projection.projectCode = _timeLog.projectCode
 {
         @ObjectModel: { 
             mandatory: true,

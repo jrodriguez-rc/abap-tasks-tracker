@@ -6,11 +6,13 @@ CLASS zcl_tt_d_i_task_tr_action_and DEFINITION
   CREATE PUBLIC .
 
   PUBLIC SECTION.
-
     METHODS /bobf/if_frw_determination~execute
-        REDEFINITION .
+        REDEFINITION.
+
   PROTECTED SECTION.
+
   PRIVATE SECTION.
+
 ENDCLASS.
 
 

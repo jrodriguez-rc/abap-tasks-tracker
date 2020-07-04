@@ -49,7 +49,6 @@ define view ZTT_I_TASK_TRANSPORT_REQUEST
         @ObjectModel: {
             mandatory: true,
             readOnly: 'EXTERNAL_CALCULATION',
-            text.association: '_request',
             foreignKey.association: '_request'
         }
     key transport_request,

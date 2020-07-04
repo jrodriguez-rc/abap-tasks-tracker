@@ -26,13 +26,13 @@ define view ZTT_I_TASKS
     association [0..1] to ZTT_VH_TIME_UNIT             as _timeUnit           on $projection.time_unit              = _timeUnit.timeUnit
     association [0..1] to ZTT_I_STATUS                 as _status             on $projection.status                 = _status.status
     association [0..*] to ZTT_I_TASK_TRANSPORT_REQUEST as _transportRequests  on $projection.code                   = _transportRequests.task_code
-                                                                               and $projection.project_code           = _transportRequests.project_code
+                                                                             and $projection.project_code           = _transportRequests.project_code
     association [0..*] to ZTT_I_TASK_COMMENTS          as _comments           on $projection.code                   = _comments.task_code
-                                                                               and $projection.project_code           = _comments.project_code
+                                                                             and $projection.project_code           = _comments.project_code
     association [0..*] to ZTT_I_TASK_TIME_LOG          as _timeLog            on $projection.code                   = _timeLog.task_code
-                                                                               and $projection.project_code           = _timeLog.project_code
+                                                                             and $projection.project_code           = _timeLog.project_code
     association [0..1] to ZTT_I_TASK_TOTAL_HOURS       as _totalHours         on $projection.code                   = _totalHours.taskCode
-                                                                               and $projection.project_code           = _totalHours.projectCode
+                                                                             and $projection.project_code           = _totalHours.projectCode
 {
 
         @Search.defaultSearchElement: true
