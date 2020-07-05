@@ -17,21 +17,26 @@
     transactionalProcessingDelegated: true
 }
 
-@UI.headerInfo:
-{
-    typeName: 'Task',
-    typeNamePlural: 'Tasks',
-    title.label: 'Task',
-    title.value: 'description'
+@UI: {
+    headerInfo: {
+        typeName: 'Task',
+        typeNamePlural: 'Tasks',
+        title.label: 'Task',
+        title.value: 'code',
+        description.label: 'Description',
+        description.value: 'description'
+    },
+    lineItem:[{criticality:'endCritically'}]
 }
 
 define view ZTT_C_TASKS
-    as select from ZTT_I_TASKS
+    as select from ZTT_I_TASKS as task
     association [1] to ZTT_C_PROJECTS                  as _project            on $projection.projectCode = _project.projectCode
     association [0..1] to ZTT_VH_USER                  as _functionalUserInfo on $projection.functionalResponsible = _functionalUserInfo.userName
     association [0..1] to ZTT_VH_USER                  as _technicalUserInfo  on $projection.technicalResponsible = _technicalUserInfo.userName
     association [0..1] to ZTT_VH_TIME_UNIT             as _timeUnit           on $projection.timeUnit    = _timeUnit.timeUnit
     association [0..1] to ZTT_I_STATUS                 as _status             on $projection.status      = _status.status
+    association [0..1] to ZTT_I_TASK_CRITICALITY       as _criticality        on $projection.endCritically = _criticality.criticality
     association [0..*] to ZTT_C_TASK_COMMENTS          as _comments           on $projection.code        = _comments.taskCode
                                                                              and $projection.projectCode = _comments.projectCode
     association [0..*] to ZTT_C_TASK_TRANSPORT_REQUEST as _transportRequests  on $projection.code        = _transportRequests.taskCode
@@ -148,11 +153,34 @@ define view ZTT_C_TASKS
         @UI.lineItem: {position: 55, importance: #LOW, label: 'Total Hours' }
         @ObjectModel.readOnly: true
         _totalHours.totalHours as totalHours,
-        
+
         @Search.defaultSearchElement: true
-        @UI.identification: {position: 60, importance: #MEDIUM }
-        @UI.lineItem: {position: 60, importance: #MEDIUM }
+        @UI.identification: {position: 60, importance: #MEDIUM, criticality: 'endCritically' }
+        @UI.lineItem: {position: 60, importance: #MEDIUM, criticality: 'endCritically' }
+        plan_end_date as planEndDate,
+
+        @Search.defaultSearchElement: true
+        @UI.identification: {position: 63, importance: #MEDIUM }
+        @UI.lineItem: {position: 63, importance: #MEDIUM }
         ended_on as endDate,
+        
+        @ObjectModel:{
+            readOnly: true,
+            foreignKey.association: '_criticality'
+        }
+        @UI:{
+            identification: {position: 66, importance: #MEDIUM, criticality: 'endCritically' },
+            lineItem: {position: 66, importance: #MEDIUM, criticality: 'endCritically' },
+            textArrangement: #TEXT_ONLY
+        }
+        @Consumption.valueHelp:'_criticality'
+        cast(substring(cast( case when plan_end_date <> '00000000'
+                      then case when secondsToDeadline <= 0 then 1
+                                when secondsToDeadline between 0 and 86400 then 2
+                                else 3
+                              end
+                      else 0 end as abap.char(3) ),1,1) as ztt_task_criticality )
+            as endCritically,
         
         @Search: {
             defaultSearchElement: true,
@@ -202,6 +230,7 @@ define view ZTT_C_TASKS
         _transportRequests,
         @ObjectModel.association.type: #TO_COMPOSITION_CHILD
         _timeLog,
+        _criticality,
         _functionalUserInfo,
         _technicalUserInfo,
         _timeUnit,

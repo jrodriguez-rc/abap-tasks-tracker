@@ -60,8 +60,20 @@ define view ZTT_I_TASKS
         @ObjectModel.foreignKey.association: '_timeUnit'
         time_unit,
         
-        ended_on,
+        plan_end_date,
         
+        plan_end_ts_utc,
+        
+        ended_on,
+
+        @ObjectModel.readOnly: true
+        case when plan_end_ts_utc > 0
+                then 
+                    case when ended_on = '00000000'
+                            then TSTMP_SECONDS_BETWEEN(tstmp_current_utctimestamp(),plan_end_ts_utc,'INITIAL')
+                         else dats_days_between(ended_on,plan_end_date) * 86400 end
+                else 0 end as secondsToDeadline,
+
         @ObjectModel.foreignKey.association: '_functionalUserInfo'
         functional_responsible,
         

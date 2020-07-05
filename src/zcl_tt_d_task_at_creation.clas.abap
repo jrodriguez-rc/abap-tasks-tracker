@@ -35,7 +35,7 @@ CLASS zcl_tt_d_task_at_creation IMPLEMENTATION.
 
     CLEAR: eo_message, et_failed_key.
 
-    IF is_ctx-exectime <> /bobf/if_conf_c=>sc_time_at_save.
+    IF is_ctx-exectime <> /bobf/if_conf_c=>sc_time_after_modify.
       RAISE EXCEPTION TYPE /bobf/cx_lib
         EXPORTING
           textid = /bobf/cx_lib=>wrong_determination_time.
