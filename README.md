@@ -3,6 +3,7 @@
 ***Note: Netweaver release 7.50 or higher is required and it isn't dependent for HANA Databases. (it means a lot of limitations of CDS annotations)***
 
 Tasks Tracker for SAP is a simple tool to manage tasks for projects, based on Fiori list report and CDS based on BOPF.
+![Task details](./images/task-details.png)
 
 ## Installation
 
