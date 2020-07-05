@@ -14,6 +14,24 @@
      <MSGNR>001</MSGNR>
      <TEXT>Project code is mandatory</TEXT>
     </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZTT_TASK</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>Task &amp;1 is already ended</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZTT_TASK</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>End time is mandatory for final status</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZTT_TASK</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>Set final status for an end time</TEXT>
+    </T100>
    </T100>
   </asx:values>
  </asx:abap>

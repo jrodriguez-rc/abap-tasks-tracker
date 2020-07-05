@@ -18,10 +18,16 @@ CLASS zcl_tt_d_i_tasks_action_and_fi DEFINITION
         customizing_open TYPE abap_bool,
       END OF ts_tr_status.
 
+    "! <p class="shorttext synchronized" lang="en"></p>
+    "!
+    "! @parameter task | <p class="shorttext synchronized" lang="en"></p>
+    METHODS set_create_request_enabled
+      IMPORTING
+        task            TYPE zstti_tasks
+        property_helper TYPE REF TO /bobf/cl_lib_h_set_property .
+
     METHODS read_tr_status
       IMPORTING
-        context       TYPE /bobf/s_frw_ctx_det
-        read          TYPE REF TO /bobf/if_frw_read
         task          TYPE zstti_tasks
       RETURNING
         VALUE(status) TYPE ts_tr_status.
@@ -44,24 +50,53 @@ CLASS zcl_tt_d_i_tasks_action_and_fi IMPLEMENTATION.
     DATA(property_helper) = NEW /bobf/cl_lib_h_set_property( io_modify  = io_modify
                                                              is_context = is_ctx ).
 
-    LOOP AT tasks INTO DATA(task) WHERE project_code IS NOT INITIAL.
+    LOOP AT tasks INTO DATA(task).
 
       property_helper->set_attribute_read_only(
            iv_attribute_name = zif_tt_i_tasks_c=>sc_node_attribute-ztt_i_tasks-project_code
            iv_key            = task-key
            iv_value          = xsdbool( task-project_code IS NOT INITIAL ) ).
 
-      DATA(tr_status) = read_tr_status( context = is_ctx read = io_read task = task ).
+      set_create_request_enabled( task            = task
+                                  property_helper = property_helper ).
 
-      property_helper->set_action_enabled( iv_action_key = zif_tt_i_tasks_c=>sc_action-ztt_i_tasks-create_tr_cu
-                                           iv_key        = task-key
-                                           iv_value      = xsdbool( tr_status-customizing_open = abap_false ) ).
-
-      property_helper->set_action_enabled( iv_action_key = zif_tt_i_tasks_c=>sc_action-ztt_i_tasks-create_tr_wb
-                                           iv_key        = task-key
-                                           iv_value      = xsdbool( tr_status-workbench_open = abap_false ) ).
+      property_helper->set_action_enabled(
+            iv_action_key = zif_tt_i_tasks_c=>sc_action-ztt_i_tasks-end_task
+            iv_key        = task-key
+            iv_value      = xsdbool( task-status = zif_tt_constants=>gc_status-open OR
+                                     task-status = zif_tt_constants=>gc_status-work_in_progress ) ).
 
     ENDLOOP.
+
+  ENDMETHOD.
+
+
+  METHOD set_create_request_enabled.
+
+    DATA: workbench_enabled   TYPE abap_bool,
+          customizing_enabled TYPE abap_bool.
+
+    DATA(tr_status) = read_tr_status( task = task ).
+
+    IF task-status = zif_tt_constants=>gc_status-open OR task-status = zif_tt_constants=>gc_status-work_in_progress.
+
+      workbench_enabled   = xsdbool( tr_status-workbench_open   = abap_false ).
+      customizing_enabled = xsdbool( tr_status-customizing_open = abap_false ).
+
+    ELSE.
+
+      workbench_enabled   = abap_false.
+      customizing_enabled = abap_false.
+
+    ENDIF.
+
+    property_helper->set_action_enabled( iv_action_key = zif_tt_i_tasks_c=>sc_action-ztt_i_tasks-create_tr_wb
+                                         iv_key        = task-key
+                                         iv_value      = workbench_enabled ).
+
+    property_helper->set_action_enabled( iv_action_key = zif_tt_i_tasks_c=>sc_action-ztt_i_tasks-create_tr_cu
+                                         iv_key        = task-key
+                                         iv_value      = customizing_enabled ).
 
   ENDMETHOD.
 

@@ -69,9 +69,9 @@ define view ZTT_I_TASKS
         @ObjectModel.readOnly: true
         case when plan_end_ts_utc > 0
                 then 
-                    case when ended_on = '00000000'
-                            then TSTMP_SECONDS_BETWEEN(tstmp_current_utctimestamp(),plan_end_ts_utc,'INITIAL')
-                         else dats_days_between(ended_on,plan_end_date) * 86400 end
+                    case when ended_on > 0
+                            then TSTMP_SECONDS_BETWEEN(ended_on,plan_end_ts_utc,'INITIAL')
+                            else TSTMP_SECONDS_BETWEEN(tstmp_current_utctimestamp(),plan_end_ts_utc,'INITIAL') end
                 else 0 end as secondsToDeadline,
 
         @ObjectModel.foreignKey.association: '_functionalUserInfo'

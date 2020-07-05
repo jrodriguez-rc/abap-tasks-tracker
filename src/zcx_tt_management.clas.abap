@@ -1,3 +1,4 @@
+"! <p class="shorttext synchronized" lang="en">Project Exception</p>
 CLASS zcx_tt_management DEFINITION
   PUBLIC
   INHERITING FROM cx_static_check
@@ -17,7 +18,34 @@ CLASS zcx_tt_management DEFINITION
         attr2 TYPE scx_attrname VALUE 'TEXT2',
         attr3 TYPE scx_attrname VALUE 'TEXT3',
         attr4 TYPE scx_attrname VALUE 'TEXT4',
-      END OF project_mandatory.
+      END OF project_mandatory,
+      "! <p class="shorttext synchronized" lang="en">Task &1 is already ended</p>
+      BEGIN OF task_ended,
+        msgid TYPE symsgid VALUE 'ZTT_TASK',
+        msgno TYPE symsgno VALUE '002',
+        attr1 TYPE scx_attrname VALUE 'TEXT1',
+        attr2 TYPE scx_attrname VALUE 'TEXT2',
+        attr3 TYPE scx_attrname VALUE 'TEXT3',
+        attr4 TYPE scx_attrname VALUE 'TEXT4',
+      END OF task_ended,
+      "! <p class="shorttext synchronized" lang="en">End time is mandatory for final status</p>
+      BEGIN OF task_end_time,
+        msgid TYPE symsgid VALUE 'ZTT_TASK',
+        msgno TYPE symsgno VALUE '003',
+        attr1 TYPE scx_attrname VALUE 'TEXT1',
+        attr2 TYPE scx_attrname VALUE 'TEXT2',
+        attr3 TYPE scx_attrname VALUE 'TEXT3',
+        attr4 TYPE scx_attrname VALUE 'TEXT4',
+      END OF task_end_time,
+      "! <p class="shorttext synchronized" lang="en">Set final status for an end time</p>
+      BEGIN OF task_status_end_time,
+        msgid TYPE symsgid VALUE 'ZTT_TASK',
+        msgno TYPE symsgno VALUE '004',
+        attr1 TYPE scx_attrname VALUE 'TEXT1',
+        attr2 TYPE scx_attrname VALUE 'TEXT2',
+        attr3 TYPE scx_attrname VALUE 'TEXT3',
+        attr4 TYPE scx_attrname VALUE 'TEXT4',
+      END OF task_status_end_time.
 
     "! <p class="shorttext synchronized" lang="en">Text 1</p>
     DATA text1 TYPE sstring .
@@ -27,6 +55,8 @@ CLASS zcx_tt_management DEFINITION
     DATA text3 TYPE sstring .
     "! <p class="shorttext synchronized" lang="en">Text 4</p>
     DATA text4 TYPE sstring .
+
+    DATA attribute TYPE string.
 
     "! <p class="shorttext synchronized" lang="en">Collect exception to BOPF messages</p>
     "!
@@ -52,6 +82,8 @@ CLASS zcx_tt_management DEFINITION
     "!
     "! @raising zcx_tt_after_req_creation | <p class="shorttext synchronized" lang="en">Tasks Tracker management exc</p>
     CLASS-METHODS raise_syst
+      IMPORTING
+        !node_attribute TYPE string OPTIONAL
       RAISING
         zcx_tt_management.
 
@@ -65,12 +97,13 @@ CLASS zcx_tt_management DEFINITION
     "! @parameter text_attr4    | <p class="shorttext synchronized" lang="en">Message Text 4</p>
     METHODS constructor
       IMPORTING
-        !message_key LIKE if_t100_message=>t100key OPTIONAL
-        !previous    LIKE previous OPTIONAL
-        !text_attr1  TYPE sstring OPTIONAL
-        !text_attr2  TYPE sstring OPTIONAL
-        !text_attr3  TYPE sstring OPTIONAL
-        !text_attr4  TYPE sstring OPTIONAL.
+        !message_key    LIKE if_t100_message=>t100key OPTIONAL
+        !previous       LIKE previous OPTIONAL
+        !text_attr1     TYPE sstring OPTIONAL
+        !text_attr2     TYPE sstring OPTIONAL
+        !text_attr3     TYPE sstring OPTIONAL
+        !text_attr4     TYPE sstring OPTIONAL
+        !node_attribute TYPE string OPTIONAL.
 
   PROTECTED SECTION.
 
@@ -84,6 +117,17 @@ CLASS zcx_tt_management IMPLEMENTATION.
 
 
   METHOD collect_bo_message.
+
+    IF exception IS NOT BOUND.
+      RETURN.
+    ENDIF.
+
+    IF bo_messages IS NOT BOUND.
+      bo_messages = /bobf/cl_frw_factory=>get_message( ).
+    ENDIF.
+
+    DATA(node_attribute) = COND #( WHEN attribute IS NOT INITIAL THEN attribute
+                                                                 ELSE exception->attribute ).
 
     TRY.
 
@@ -102,14 +146,14 @@ CLASS zcx_tt_management IMPLEMENTATION.
                                                               msgv4 = exception->text4 )
                                   iv_node      = node
                                   iv_key       = key
-                                  iv_attribute = attribute
+                                  iv_attribute = node_attribute
                                   iv_lifetime  = lifetime ).
 
       CATCH cx_sy_move_cast_error.
         bo_messages->add_exception( io_exception = exception
                                     iv_node      = node
                                     iv_key       = key
-                                    iv_attribute = CONV #( attribute ) ).
+                                    iv_attribute = CONV #( node_attribute ) ).
     ENDTRY.
 
   ENDMETHOD.
@@ -119,12 +163,13 @@ CLASS zcx_tt_management IMPLEMENTATION.
     CALL METHOD super->constructor
       EXPORTING
         previous = previous.
-    text1 = text_attr1.
-    text2 = text_attr2.
-    text3 = text_attr3.
-    text4 = text_attr4.
+    text1     = text_attr1.
+    text2     = text_attr2.
+    text3     = text_attr3.
+    text4     = text_attr4.
+    attribute = node_attribute.
     CLEAR textid.
-    IF textid IS INITIAL.
+    IF message_key IS INITIAL.
       if_t100_message~t100key = if_t100_message=>default_textid.
     ELSE.
       if_t100_message~t100key = message_key.
@@ -136,16 +181,17 @@ CLASS zcx_tt_management IMPLEMENTATION.
 
     RAISE EXCEPTION TYPE zcx_tt_management
       EXPORTING
-        message_key = VALUE scx_t100key( msgid = sy-msgid
-                                    msgno = sy-msgno
-                                    attr1 = 'TEXT1'
-                                    attr2 = 'TEXT2'
-                                    attr3 = 'TEXT3'
-                                    attr4 = 'TEXT4' )
-        text_attr1  = CONV #( sy-msgv1 )
-        text_attr2  = CONV #( sy-msgv2 )
-        text_attr3  = CONV #( sy-msgv3 )
-        text_attr4  = CONV #( sy-msgv4 ).
+        message_key    = VALUE scx_t100key( msgid = sy-msgid
+                                       msgno = sy-msgno
+                                       attr1 = 'TEXT1'
+                                       attr2 = 'TEXT2'
+                                       attr3 = 'TEXT3'
+                                       attr4 = 'TEXT4' )
+        text_attr1     = CONV #( sy-msgv1 )
+        text_attr2     = CONV #( sy-msgv2 )
+        text_attr3     = CONV #( sy-msgv3 )
+        text_attr4     = CONV #( sy-msgv4 )
+        node_attribute = node_attribute.
 
   ENDMETHOD.
 
