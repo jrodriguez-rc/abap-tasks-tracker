@@ -34,6 +34,7 @@ define view ZTT_I_PROJECTS
     
         @Search.defaultSearchElement: true
         @ObjectModel.mandatory: true
+        @Search.ranking: #MEDIUM
         name,
         
         started_on,

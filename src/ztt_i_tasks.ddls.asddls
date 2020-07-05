@@ -37,6 +37,8 @@ define view ZTT_I_TASKS
 
         @Search.defaultSearchElement: true
         @ObjectModel.readOnly: 'EXTERNAL_CALCULATION'
+        @ObjectModel.mandatory: true
+        @ObjectModel.text.association: '_project'
         @Search.ranking: #HIGH
         @ObjectModel.foreignKey.association: '_project'
     key project_code,

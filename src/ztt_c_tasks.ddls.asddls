@@ -21,10 +21,12 @@
     headerInfo: {
         typeName: 'Task',
         typeNamePlural: 'Tasks',
-        title.label: 'Task',
-        title.value: 'code',
-        description.label: 'Description',
-        description.value: 'description'
+        title.label: 'Description',
+        title.value: 'description',
+        title.criticality: 'endCritically',
+        description.label: 'Task code',
+        description.value: 'code',
+        description.criticality: 'endCritically'
     },
     lineItem:[{criticality:'endCritically'}]
 }
@@ -44,10 +46,7 @@ define view ZTT_C_TASKS
     association [0..*] to ZTT_C_TASK_TIME_LOG          as _timeLog            on $projection.code        = _timeLog.taskCode
                                                                              and $projection.projectCode = _timeLog.projectCode
 {
-        @ObjectModel: { 
-            mandatory: true,
-            text.element: ['name']
-        }
+
         @Search: {
             defaultSearchElement: true,
             ranking: #HIGH,
@@ -91,7 +90,10 @@ define view ZTT_C_TASKS
                 importance: #HIGH
             },
             selectionField.position: 20,
-            dataPoint.title: 'Task code'
+            dataPoint: {
+                title: 'Task',
+                criticality: 'endCritically'
+            }
         }
     key code,
     
@@ -109,8 +111,7 @@ define view ZTT_C_TASKS
                 position: 30,
                 importance: #HIGH
             },
-            selectionField.position: 30,
-            dataPoint.title: 'Description'
+            selectionField.position: 30
         }
         @ObjectModel.mandatory: true
         @Semantics.text: true

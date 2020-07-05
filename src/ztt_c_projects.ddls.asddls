@@ -31,6 +31,7 @@ define view ZTT_C_PROJECTS
     association [0..*] to ZTT_C_TASKS as _tasks   on $projection.projectCode = _tasks.projectCode
 {
 
+        @ObjectModel.text.element: ['name']
         @Search: {
             defaultSearchElement: true,
             ranking: #HIGH,
