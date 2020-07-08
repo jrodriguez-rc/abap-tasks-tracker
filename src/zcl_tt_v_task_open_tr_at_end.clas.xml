@@ -3,22 +3,14 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <VSEOCLASS>
-    <CLSNAME>ZCL_TT_V_TASK_END</CLSNAME>
+    <CLSNAME>ZCL_TT_V_TASK_OPEN_TR_AT_END</CLSNAME>
     <LANGU>E</LANGU>
-    <DESCRIPT>Validation: End task</DESCRIPT>
+    <DESCRIPT>Validation: Open transport requests at end task</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>
     <UNICODE>X</UNICODE>
    </VSEOCLASS>
-   <DESCRIPTIONS>
-    <SEOCOMPOTX>
-     <CLSNAME>ZCL_TT_V_TASK_END</CLSNAME>
-     <CMPNAME>CHECK_END_STATUS</CMPNAME>
-     <LANGU>E</LANGU>
-     <DESCRIPT>Check end status consistency</DESCRIPT>
-    </SEOCOMPOTX>
-   </DESCRIPTIONS>
   </asx:values>
  </asx:abap>
 </abapGit>

@@ -32,6 +32,12 @@
      <MSGNR>004</MSGNR>
      <TEXT>Set final status for an end time</TEXT>
     </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZTT_TASK</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>Transport Request &amp;1 is still open</TEXT>
+    </T100>
    </T100>
   </asx:values>
  </asx:abap>

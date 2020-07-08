@@ -154,6 +154,7 @@ define view ZTT_C_TASKS
         @UI.identification: {position: 55, importance: #MEDIUM, label: 'Total Hours' }
         @UI.lineItem: {position: 55, importance: #LOW, label: 'Total Hours' }
         @ObjectModel.readOnly: true
+        @DefaultAggregation: #SUM
         _totalHours.totalHours as totalHours,
 
         @Search.defaultSearchElement: true

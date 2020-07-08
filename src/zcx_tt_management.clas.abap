@@ -45,7 +45,16 @@ CLASS zcx_tt_management DEFINITION
         attr2 TYPE scx_attrname VALUE 'TEXT2',
         attr3 TYPE scx_attrname VALUE 'TEXT3',
         attr4 TYPE scx_attrname VALUE 'TEXT4',
-      END OF task_status_end_time.
+      END OF task_status_end_time,
+      "! <p class="shorttext synchronized" lang="en">Transport Request &1 is still open</p>
+      BEGIN OF transport_request_open,
+        msgid TYPE symsgid VALUE 'ZTT_TASK',
+        msgno TYPE symsgno VALUE '005',
+        attr1 TYPE scx_attrname VALUE 'TEXT1',
+        attr2 TYPE scx_attrname VALUE 'TEXT2',
+        attr3 TYPE scx_attrname VALUE 'TEXT3',
+        attr4 TYPE scx_attrname VALUE 'TEXT4',
+      END OF transport_request_open.
 
     "! <p class="shorttext synchronized" lang="en">Text 1</p>
     DATA text1 TYPE sstring .

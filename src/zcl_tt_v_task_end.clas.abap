@@ -1,3 +1,4 @@
+"! <p class="shorttext synchronized" lang="en">Validation: End task</p>
 CLASS zcl_tt_v_task_end DEFINITION
   PUBLIC
   INHERITING FROM /bobf/cl_lib_v_supercl_simple
@@ -11,15 +12,16 @@ CLASS zcl_tt_v_task_end DEFINITION
   PROTECTED SECTION.
 
   PRIVATE SECTION.
-    "! <p class="shorttext synchronized" lang="en">Check end status consistency</p>
-    "!
-    "! @parameter task | <p class="shorttext synchronized" lang="en">Task</p>
-    "! @raising zcx_tt_management | <p class="shorttext synchronized" lang="en">Task exception</p>
+    DATA:
+      context      TYPE /bobf/s_frw_ctx_val,
+      read         TYPE REF TO /bobf/if_frw_read,
+      all_messages TYPE REF TO /bobf/if_frw_message.
+
     METHODS check_end_status
       IMPORTING
-        task TYPE zstti_tasks
-      RAISING
-        zcx_tt_management.
+        task          TYPE zstti_tasks
+      RETURNING
+        VALUE(failed) TYPE abap_bool.
 
 ENDCLASS.
 
@@ -38,23 +40,18 @@ CLASS zcl_tt_v_task_end IMPLEMENTATION.
                                  it_key  = it_key
                        IMPORTING et_data = tasks ).
 
+    context = is_ctx.
+    read    = io_read.
+
     LOOP AT tasks INTO DATA(task).
 
-      TRY.
-          check_end_status( task ).
-        CATCH zcx_tt_management INTO DATA(lx_management).
-          zcx_tt_management=>collect_bo_message(
-            EXPORTING
-              exception   = lx_management
-              node        = is_ctx-node_key
-              key         = task-key
-            CHANGING
-              bo_messages = eo_message ).
-          INSERT VALUE #( key = task-key ) INTO TABLE et_failed_key.
-          CONTINUE.
-      ENDTRY.
+      IF check_end_status( task ) AND NOT line_exists( et_failed_key[ KEY key_sort key = task-key ] ).
+        INSERT VALUE #( key = task-key ) INTO TABLE et_failed_key.
+      ENDIF.
 
     ENDLOOP.
+
+    eo_message = all_messages.
 
   ENDMETHOD.
 
@@ -65,10 +62,15 @@ CLASS zcl_tt_v_task_end IMPLEMENTATION.
         ( task-status = zif_tt_constants=>gc_status-ended OR
           task-status = zif_tt_constants=>gc_status-cancelled ).
 
-      RAISE EXCEPTION TYPE zcx_tt_management
+      zcx_tt_management=>collect_bo_message(
         EXPORTING
-          message_key    = zcx_tt_management=>task_end_time
-          node_attribute = zif_tt_i_tasks_c=>sc_node_attribute-ztt_i_tasks-ended_on.
+          exception    = NEW zcx_tt_management( message_key = zcx_tt_management=>task_end_time )
+          node         = context-node_key
+          key          = task-key
+          attribute    = zif_tt_i_tasks_c=>sc_node_attribute-ztt_i_tasks-ended_on
+        CHANGING
+          bo_messages  = all_messages ).
+      failed = abap_true.
 
     ENDIF.
 
@@ -76,10 +78,15 @@ CLASS zcl_tt_v_task_end IMPLEMENTATION.
         task-status <> zif_tt_constants=>gc_status-ended AND
         task-status <> zif_tt_constants=>gc_status-cancelled.
 
-      RAISE EXCEPTION TYPE zcx_tt_management
+      zcx_tt_management=>collect_bo_message(
         EXPORTING
-          message_key    = zcx_tt_management=>task_status_end_time
-          node_attribute = zif_tt_i_tasks_c=>sc_node_attribute-ztt_i_tasks-status.
+          exception    = NEW zcx_tt_management( message_key = zcx_tt_management=>task_status_end_time )
+          node         = context-node_key
+          key          = task-key
+          attribute    = zif_tt_i_tasks_c=>sc_node_attribute-ztt_i_tasks-status
+        CHANGING
+          bo_messages  = all_messages ).
+      failed = abap_true.
 
     ENDIF.
 
