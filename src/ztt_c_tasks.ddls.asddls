@@ -36,7 +36,6 @@ define view ZTT_C_TASKS
     association [1] to ZTT_C_PROJECTS                  as _project            on $projection.projectCode = _project.projectCode
     association [0..1] to ZTT_VH_USER                  as _functionalUserInfo on $projection.functionalResponsible = _functionalUserInfo.userName
     association [0..1] to ZTT_VH_USER                  as _technicalUserInfo  on $projection.technicalResponsible = _technicalUserInfo.userName
-    association [0..1] to ZTT_VH_TIME_UNIT             as _timeUnit           on $projection.timeUnit    = _timeUnit.timeUnit
     association [0..1] to ZTT_I_STATUS                 as _status             on $projection.status      = _status.status
     association [0..1] to ZTT_I_TASK_CRITICALITY       as _criticality        on $projection.endCritically = _criticality.criticality
     association [0..*] to ZTT_C_TASK_COMMENTS          as _comments           on $projection.code        = _comments.taskCode
@@ -70,11 +69,6 @@ define view ZTT_C_TASKS
         @ObjectModel.foreignKey.association: '_project'
     key project_code as projectCode,
     
-        @ObjectModel: { 
-            mandatory: true,
-            readOnly: true,
-            text.element: ['description']
-        }
         @Search: {
             defaultSearchElement: true,
             ranking: #HIGH,
@@ -144,17 +138,10 @@ define view ZTT_C_TASKS
         @UI.lineItem: {position: 40, importance: #HIGH }
         estimation,
         
-        @UI.identification: {position: 50, importance: #MEDIUM }
-        @UI.lineItem: {position: 50, importance: #HIGH }
-        @Consumption.valueHelp:'_timeUnit'
-        @Consumption.defaultValue: 'HOUR'
-        @ObjectModel.foreignKey.association: '_timeUnit'
-        time_unit as timeUnit,
-        
         @UI.identification: {position: 55, importance: #MEDIUM, label: 'Total Hours' }
         @UI.lineItem: {position: 55, importance: #LOW, label: 'Total Hours' }
         @ObjectModel.readOnly: true
-        @DefaultAggregation: #SUM
+//        @DefaultAggregation: #SUM
         _totalHours.totalHours as totalHours,
 
         @Search.defaultSearchElement: true
@@ -236,6 +223,5 @@ define view ZTT_C_TASKS
         _criticality,
         _functionalUserInfo,
         _technicalUserInfo,
-        _timeUnit,
         _status
 }

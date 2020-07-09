@@ -57,6 +57,11 @@ CLASS zcl_tt_d_i_tasks_action_and_fi IMPLEMENTATION.
            iv_key            = task-key
            iv_value          = xsdbool( task-project_code IS NOT INITIAL ) ).
 
+      property_helper->set_attribute_read_only(
+           iv_attribute_name = zif_tt_i_tasks_c=>sc_node_attribute-ztt_i_tasks-code
+           iv_key            = task-key
+           iv_value          = xsdbool( task-code IS NOT INITIAL ) ).
+
       set_create_request_enabled( task            = task
                                   property_helper = property_helper ).
 

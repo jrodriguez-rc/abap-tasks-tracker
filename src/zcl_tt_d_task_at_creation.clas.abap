@@ -18,9 +18,26 @@ CLASS zcl_tt_d_task_at_creation DEFINITION
         task TYPE zstti_tasks.
 
   PRIVATE SECTION.
+    TYPES:
+      ty_number TYPE n LENGTH 5.
+
+    TYPES:
+      BEGIN OF ts_last_project_number,
+        project_code TYPE ztt_project_code,
+        number       TYPE ty_number,
+      END OF ts_last_project_number,
+      tt_last_project_number TYPE HASHED TABLE OF ts_last_project_number WITH UNIQUE KEY project_code.
+
     DATA:
-      read    TYPE REF TO /bobf/if_frw_read,
-      context TYPE /bobf/s_frw_ctx_det.
+      read                 TYPE REF TO /bobf/if_frw_read,
+      context              TYPE /bobf/s_frw_ctx_det,
+      last_project_numbers TYPE tt_last_project_number.
+
+    METHODS get_next_number
+      IMPORTING
+        project_code       TYPE ztt_project_code
+      RETURNING
+        VALUE(next_number) TYPE ty_number.
 
 ENDCLASS.
 
@@ -48,7 +65,7 @@ CLASS zcl_tt_d_task_at_creation IMPLEMENTATION.
     read = io_read.
     context = is_ctx.
 
-    LOOP AT tasks INTO DATA(task) WHERE code IS INITIAL.
+    LOOP AT tasks INTO DATA(task).
 
       fill( CHANGING task = task ).
 
@@ -69,13 +86,34 @@ CLASS zcl_tt_d_task_at_creation IMPLEMENTATION.
       task-time_unit = 'HOUR'.
     ENDIF.
 
-    SELECT COUNT(*)
-      INTO @DATA(count)
-      FROM ztt_tasks
-      WHERE project_code = @task-project_code.
-    number = count.
+    IF task-code IS INITIAL.
+      task-code = |{ task-project_code }-{ get_next_number( task-project_code ) }|.
+    ENDIF.
 
-    task-code = |{ task-project_code }-{ number }|.
+  ENDMETHOD.
+
+
+  METHOD get_next_number.
+
+    READ TABLE last_project_numbers ASSIGNING FIELD-SYMBOL(<last_project_number>)
+      WITH KEY project_code = project_code.
+    IF sy-subrc <> 0.
+
+      INSERT INITIAL LINE INTO TABLE last_project_numbers ASSIGNING <last_project_number>.
+
+      <last_project_number>-project_code = project_code.
+
+      SELECT COUNT(*)
+        INTO @DATA(count)
+        FROM ztt_tasks
+        WHERE project_code = @project_code.
+      <last_project_number>-number = count.
+
+    ENDIF.
+
+    <last_project_number>-number = <last_project_number>-number + 1.
+
+    next_number = <last_project_number>-number.
 
   ENDMETHOD.
 
