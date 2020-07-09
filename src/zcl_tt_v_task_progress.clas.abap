@@ -1,5 +1,4 @@
-"! <p class="shorttext synchronized" lang="en">Validation: Task project code</p>
-CLASS zcl_tt_v_task_project_code DEFINITION
+CLASS zcl_tt_v_task_progress DEFINITION
   PUBLIC
   INHERITING FROM /bobf/cl_lib_v_supercl_simple
   FINAL
@@ -17,7 +16,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_tt_v_task_project_code IMPLEMENTATION.
+CLASS zcl_tt_v_task_progress IMPLEMENTATION.
 
 
   METHOD /bobf/if_frw_validation~execute.
@@ -32,24 +31,18 @@ CLASS zcl_tt_v_task_project_code IMPLEMENTATION.
 
     LOOP AT tasks INTO DATA(task).
 
-      IF task-project_code IS INITIAL.
+      IF task-progress > 100.
 
         zcx_tt_management=>collect_bo_message(
           EXPORTING
-            exception    = NEW zcx_tt_management( message_key = zcx_tt_management=>project_mandatory )
+            exception    = NEW zcx_tt_management( message_key = zcx_tt_management=>progress_over_100 )
             node         = is_ctx-node_key
             key          = task-key
-            attribute    = zif_tt_i_tasks_c=>sc_node_attribute-ztt_i_tasks-project_code
+            attribute    = zif_tt_i_tasks_c=>sc_node_attribute-ztt_i_tasks-progress
           CHANGING
             bo_messages  = eo_message ).
 
         INSERT VALUE #( key = task-key ) INTO TABLE et_failed_key.
-
-      ELSE.
-
-        SELECT SINGLE code INTO @DATA(project_code)
-          FROM ztt_projects
-          WHERE code = @task-project_code.
 
       ENDIF.
 

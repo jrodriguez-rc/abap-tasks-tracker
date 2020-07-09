@@ -38,6 +38,24 @@
      <MSGNR>005</MSGNR>
      <TEXT>Transport Request &amp;1 is still open</TEXT>
     </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZTT_TASK</ARBGB>
+     <MSGNR>006</MSGNR>
+     <TEXT>Maximum progress is 100%</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZTT_TASK</ARBGB>
+     <MSGNR>007</MSGNR>
+     <TEXT>Set 100% progress for an ended task</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZTT_TASK</ARBGB>
+     <MSGNR>008</MSGNR>
+     <TEXT>Task is at 100% progress, please set end status</TEXT>
+    </T100>
    </T100>
   </asx:values>
  </asx:abap>

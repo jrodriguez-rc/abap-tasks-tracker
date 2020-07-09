@@ -23,6 +23,12 @@ CLASS zcl_tt_v_task_end DEFINITION
       RETURNING
         VALUE(failed) TYPE abap_bool.
 
+    METHODS check_end_progress
+      IMPORTING
+        task          TYPE zstti_tasks
+      RETURNING
+        VALUE(failed) TYPE abap_bool.
+
 ENDCLASS.
 
 
@@ -46,6 +52,10 @@ CLASS zcl_tt_v_task_end IMPLEMENTATION.
     LOOP AT tasks INTO DATA(task).
 
       IF check_end_status( task ) AND NOT line_exists( et_failed_key[ KEY key_sort key = task-key ] ).
+        INSERT VALUE #( key = task-key ) INTO TABLE et_failed_key.
+      ENDIF.
+
+      IF check_end_progress( task ) AND NOT line_exists( et_failed_key[ KEY key_sort key = task-key ] ).
         INSERT VALUE #( key = task-key ) INTO TABLE et_failed_key.
       ENDIF.
 
@@ -81,6 +91,39 @@ CLASS zcl_tt_v_task_end IMPLEMENTATION.
       zcx_tt_management=>collect_bo_message(
         EXPORTING
           exception    = NEW zcx_tt_management( message_key = zcx_tt_management=>task_status_end_time )
+          node         = context-node_key
+          key          = task-key
+          attribute    = zif_tt_i_tasks_c=>sc_node_attribute-ztt_i_tasks-status
+        CHANGING
+          bo_messages  = all_messages ).
+      failed = abap_true.
+
+    ENDIF.
+
+  ENDMETHOD.
+
+
+  METHOD check_end_progress.
+
+    IF task-status = zif_tt_constants=>gc_status-ended AND task-progress <> 100.
+
+      zcx_tt_management=>collect_bo_message(
+        EXPORTING
+          exception    = NEW zcx_tt_management( message_key = zcx_tt_management=>ended_task_progress_not_100 )
+          node         = context-node_key
+          key          = task-key
+          attribute    = zif_tt_i_tasks_c=>sc_node_attribute-ztt_i_tasks-progress
+        CHANGING
+          bo_messages  = all_messages ).
+      failed = abap_true.
+
+    ENDIF.
+
+    IF task-status <> zif_tt_constants=>gc_status-ended AND task-progress = 100.
+
+      zcx_tt_management=>collect_bo_message(
+        EXPORTING
+          exception    = NEW zcx_tt_management( message_key = zcx_tt_management=>progress_100_non_ended_task )
           node         = context-node_key
           key          = task-key
           attribute    = zif_tt_i_tasks_c=>sc_node_attribute-ztt_i_tasks-status

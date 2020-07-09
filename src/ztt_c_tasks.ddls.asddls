@@ -134,6 +134,18 @@ define view ZTT_C_TASKS
         @UI.statusInfo: [ { position: 10 } ]
         status,
         
+        @UI.dataPoint: {
+            title: 'Progress',
+            description: 'Progress percentage',
+            longDescription: 'Progress percentage',
+            minimumValue: 0,
+            maximumValue: 100,
+            responsible: 'functional_responsible'
+        }
+        @UI.identification: {position: 38, importance: #MEDIUM }
+        @UI.lineItem: {position: 38, importance: #HIGH }
+        progress,
+        
         @UI.identification: {position: 40, importance: #MEDIUM }
         @UI.lineItem: {position: 40, importance: #HIGH }
         estimation,

@@ -60,6 +60,8 @@ define view ZTT_I_TASKS
         @ObjectModel.foreignKey.association: '_status'
         status,
         
+        progress,
+        
         estimation,
         
         @ObjectModel.foreignKey.association: '_timeUnit'

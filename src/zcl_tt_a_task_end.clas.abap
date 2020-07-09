@@ -68,7 +68,8 @@ CLASS zcl_tt_a_task_end IMPLEMENTATION.
     ENDIF.
 
     GET TIME STAMP FIELD task-ended_on.
-    task-status = zif_tt_constants=>gc_status-ended.
+    task-status   = zif_tt_constants=>gc_status-ended.
+    task-progress = 100.
 
   ENDMETHOD.
 

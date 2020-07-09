@@ -54,7 +54,34 @@ CLASS zcx_tt_management DEFINITION
         attr2 TYPE scx_attrname VALUE 'TEXT2',
         attr3 TYPE scx_attrname VALUE 'TEXT3',
         attr4 TYPE scx_attrname VALUE 'TEXT4',
-      END OF transport_request_open.
+      END OF transport_request_open,
+      "! <p class="shorttext synchronized" lang="en">Maximum progress is 100%</p>
+      BEGIN OF progress_over_100,
+        msgid TYPE symsgid VALUE 'ZTT_TASK',
+        msgno TYPE symsgno VALUE '006',
+        attr1 TYPE scx_attrname VALUE 'TEXT1',
+        attr2 TYPE scx_attrname VALUE 'TEXT2',
+        attr3 TYPE scx_attrname VALUE 'TEXT3',
+        attr4 TYPE scx_attrname VALUE 'TEXT4',
+      END OF progress_over_100,
+      "! <p class="shorttext synchronized" lang="en">Set 100% progress for an ended task</p>
+      BEGIN OF ended_task_progress_not_100,
+        msgid TYPE symsgid VALUE 'ZTT_TASK',
+        msgno TYPE symsgno VALUE '007',
+        attr1 TYPE scx_attrname VALUE 'TEXT1',
+        attr2 TYPE scx_attrname VALUE 'TEXT2',
+        attr3 TYPE scx_attrname VALUE 'TEXT3',
+        attr4 TYPE scx_attrname VALUE 'TEXT4',
+      END OF ended_task_progress_not_100,
+      "! <p class="shorttext synchronized" lang="en">Task is at 100% progress, please set end status</p>
+      BEGIN OF progress_100_non_ended_task,
+        msgid TYPE symsgid VALUE 'ZTT_TASK',
+        msgno TYPE symsgno VALUE '008',
+        attr1 TYPE scx_attrname VALUE 'TEXT1',
+        attr2 TYPE scx_attrname VALUE 'TEXT2',
+        attr3 TYPE scx_attrname VALUE 'TEXT3',
+        attr4 TYPE scx_attrname VALUE 'TEXT4',
+      END OF progress_100_non_ended_task.
 
     "! <p class="shorttext synchronized" lang="en">Text 1</p>
     DATA text1 TYPE sstring .
