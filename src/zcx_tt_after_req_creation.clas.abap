@@ -23,10 +23,10 @@ CLASS zcx_tt_after_req_creation DEFINITION
       IMPORTING
         !message_key LIKE if_t100_message=>t100key OPTIONAL
         !previous    LIKE previous OPTIONAL
-        !text_attr1  TYPE sstring OPTIONAL
-        !text_attr2  TYPE sstring OPTIONAL
-        !text_attr3  TYPE sstring OPTIONAL
-        !text_attr4  TYPE sstring OPTIONAL.
+        !text_attr1  TYPE string OPTIONAL
+        !text_attr2  TYPE string OPTIONAL
+        !text_attr3  TYPE string OPTIONAL
+        !text_attr4  TYPE string OPTIONAL.
 
   PROTECTED SECTION.
   PRIVATE SECTION.
@@ -58,11 +58,11 @@ CLASS zcx_tt_after_req_creation IMPLEMENTATION.
   METHOD constructor ##ADT_SUPPRESS_GENERATION.
     CALL METHOD super->constructor
       EXPORTING
-        message_key   = message_key
-        text_attr1    = text_attr1
-        text_attr2    = text_attr2
-        text_attr3    = text_attr3
-        text_attr4    = text_attr4
+        textid   = message_key
+        text1    = text_attr1
+        text2    = text_attr2
+        text3    = text_attr3
+        text4    = text_attr4
         previous = previous.
   ENDMETHOD.
 

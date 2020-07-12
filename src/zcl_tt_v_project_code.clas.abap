@@ -34,12 +34,12 @@ CLASS zcl_tt_v_project_code IMPLEMENTATION.
 
       zcx_tt_management=>collect_bo_message(
         EXPORTING
-          exception    = NEW zcx_tt_management( message_key = zcx_tt_management=>project_mandatory )
-          node         = is_ctx-node_key
-          key          = project-key
-          attribute    = 'CODE'
+          textid      = zcx_tt_management=>project_mandatory
+          node        = is_ctx-node_key
+          key         = project-key
+          attribute   = zif_tt_i_projects_c=>sc_node_attribute-ztt_i_projects-code
         CHANGING
-          bo_messages  = eo_message ).
+          bo_messages = eo_message ).
 
       INSERT VALUE #( key = project-key ) INTO TABLE et_failed_key.
 

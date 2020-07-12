@@ -87,13 +87,13 @@ CLASS zcl_tt_v_task_open_tr_at_end IMPLEMENTATION.
 
         zcx_tt_management=>collect_bo_message(
           EXPORTING
-            exception    = NEW zcx_tt_management( message_key = zcx_tt_management=>transport_request_open
-                                                  text_attr1  = transport_request->transport_request )
-            node         = context-node_key
-            key          = task-key
-            attribute    = zif_tt_i_tasks_c=>sc_node_attribute-ztt_i_tasks-status
+            textid      = zcx_tt_management=>transport_request_open
+            text1       = CONV #( transport_request->transport_request )
+            node        = context-node_key
+            key         = task-key
+            attribute   = zif_tt_i_tasks_c=>sc_node_attribute-ztt_i_tasks-status
           CHANGING
-            bo_messages  = all_messages ).
+            bo_messages = all_messages ).
         failed = abap_true.
 
       ENDIF.

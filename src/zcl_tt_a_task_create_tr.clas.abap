@@ -70,14 +70,22 @@ CLASS zcl_tt_a_task_create_tr IMPLEMENTATION.
           DATA(new_request) = create_request( type  = get_tr_type( )
                                               task = task ).
         CATCH zcx_tt_after_req_creation INTO DATA(lx_after_req_creation).
-          zcx_tt_management=>collect_bo_message( EXPORTING exception    = lx_after_req_creation
+          zcx_tt_management=>collect_bo_message( EXPORTING textid       = lx_after_req_creation->if_t100_message~t100key
+                                                           text1        = lx_after_req_creation->text1
+                                                           text2        = lx_after_req_creation->text2
+                                                           text3        = lx_after_req_creation->text3
+                                                           text4        = lx_after_req_creation->text4
                                                            message_type = 'W'
                                                            node         = is_ctx-node_key
                                                            key          = task-key
                                                  CHANGING  bo_messages  = eo_message ).
           error_after_creation = abap_true.
         CATCH zcx_tt_management INTO DATA(lx_management).
-          zcx_tt_management=>collect_bo_message( EXPORTING exception   = lx_management
+          zcx_tt_management=>collect_bo_message( EXPORTING textid      = lx_management->if_t100_message~t100key
+                                                           text1       = lx_management->text1
+                                                           text2       = lx_management->text2
+                                                           text3       = lx_management->text3
+                                                           text4       = lx_management->text4
                                                            node        = is_ctx-node_key
                                                            key         = task-key
                                                  CHANGING  bo_messages = eo_message ).

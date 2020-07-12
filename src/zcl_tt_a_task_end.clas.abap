@@ -39,7 +39,11 @@ CLASS zcl_tt_a_task_end IMPLEMENTATION.
         CATCH zcx_tt_management INTO DATA(lx_management).
           zcx_tt_management=>collect_bo_message(
             EXPORTING
-              exception   = lx_management
+              textid      = lx_management->if_t100_message~t100key
+              text1       = lx_management->text1
+              text2       = lx_management->text2
+              text3       = lx_management->text3
+              text4       = lx_management->text4
               node        = is_ctx-node_key
               key         = task-key
               attribute   = zif_tt_i_tasks_c=>sc_node_attribute-ztt_i_tasks-ended_on
@@ -63,8 +67,8 @@ CLASS zcl_tt_a_task_end IMPLEMENTATION.
     IF task-ended_on IS NOT INITIAL.
       RAISE EXCEPTION TYPE zcx_tt_management
         EXPORTING
-          message_key = zcx_tt_management=>task_ended
-          text_attr1  = CONV #( task-description ).
+          textid = zcx_tt_management=>task_ended
+          text1  = CONV #( task-description ).
     ENDIF.
 
     GET TIME STAMP FIELD task-ended_on.

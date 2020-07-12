@@ -74,12 +74,12 @@ CLASS zcl_tt_v_task_end IMPLEMENTATION.
 
       zcx_tt_management=>collect_bo_message(
         EXPORTING
-          exception    = NEW zcx_tt_management( message_key = zcx_tt_management=>task_end_time )
-          node         = context-node_key
-          key          = task-key
-          attribute    = zif_tt_i_tasks_c=>sc_node_attribute-ztt_i_tasks-ended_on
+          textid      = zcx_tt_management=>task_end_time
+          node        = context-node_key
+          key         = task-key
+          attribute   = zif_tt_i_tasks_c=>sc_node_attribute-ztt_i_tasks-ended_on
         CHANGING
-          bo_messages  = all_messages ).
+          bo_messages = all_messages ).
       failed = abap_true.
 
     ENDIF.
@@ -90,12 +90,12 @@ CLASS zcl_tt_v_task_end IMPLEMENTATION.
 
       zcx_tt_management=>collect_bo_message(
         EXPORTING
-          exception    = NEW zcx_tt_management( message_key = zcx_tt_management=>task_status_end_time )
-          node         = context-node_key
-          key          = task-key
-          attribute    = zif_tt_i_tasks_c=>sc_node_attribute-ztt_i_tasks-status
+          textid      = zcx_tt_management=>task_status_end_time
+          node        = context-node_key
+          key         = task-key
+          attribute   = zif_tt_i_tasks_c=>sc_node_attribute-ztt_i_tasks-status
         CHANGING
-          bo_messages  = all_messages ).
+          bo_messages = all_messages ).
       failed = abap_true.
 
     ENDIF.
@@ -109,12 +109,12 @@ CLASS zcl_tt_v_task_end IMPLEMENTATION.
 
       zcx_tt_management=>collect_bo_message(
         EXPORTING
-          exception    = NEW zcx_tt_management( message_key = zcx_tt_management=>ended_task_progress_not_100 )
-          node         = context-node_key
-          key          = task-key
-          attribute    = zif_tt_i_tasks_c=>sc_node_attribute-ztt_i_tasks-progress
+          textid      = zcx_tt_management=>ended_task_progress_not_100
+          node        = context-node_key
+          key         = task-key
+          attribute   = zif_tt_i_tasks_c=>sc_node_attribute-ztt_i_tasks-progress
         CHANGING
-          bo_messages  = all_messages ).
+          bo_messages = all_messages ).
       failed = abap_true.
 
     ENDIF.
@@ -123,12 +123,12 @@ CLASS zcl_tt_v_task_end IMPLEMENTATION.
 
       zcx_tt_management=>collect_bo_message(
         EXPORTING
-          exception    = NEW zcx_tt_management( message_key = zcx_tt_management=>progress_100_non_ended_task )
-          node         = context-node_key
-          key          = task-key
-          attribute    = zif_tt_i_tasks_c=>sc_node_attribute-ztt_i_tasks-status
+          textid      = zcx_tt_management=>progress_100_non_ended_task
+          node        = context-node_key
+          key         = task-key
+          attribute   = zif_tt_i_tasks_c=>sc_node_attribute-ztt_i_tasks-status
         CHANGING
-          bo_messages  = all_messages ).
+          bo_messages = all_messages ).
       failed = abap_true.
 
     ENDIF.

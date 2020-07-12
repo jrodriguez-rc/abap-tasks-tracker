@@ -95,6 +95,10 @@ CLASS zcl_tt_d_task_at_creation IMPLEMENTATION.
 
   METHOD get_next_number.
 
+    IF project_code IS INITIAL.
+      RETURN.
+    ENDIF.
+
     READ TABLE last_project_numbers ASSIGNING FIELD-SYMBOL(<last_project_number>)
       WITH KEY project_code = project_code.
     IF sy-subrc <> 0.

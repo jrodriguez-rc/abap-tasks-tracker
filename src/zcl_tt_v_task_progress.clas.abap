@@ -11,6 +11,8 @@ CLASS zcl_tt_v_task_progress DEFINITION
   PROTECTED SECTION.
 
   PRIVATE SECTION.
+    DATA
+      all_messages TYPE REF TO /bobf/if_frw_message.
 
 ENDCLASS.
 
@@ -35,12 +37,12 @@ CLASS zcl_tt_v_task_progress IMPLEMENTATION.
 
         zcx_tt_management=>collect_bo_message(
           EXPORTING
-            exception    = NEW zcx_tt_management( message_key = zcx_tt_management=>progress_over_100 )
-            node         = is_ctx-node_key
-            key          = task-key
-            attribute    = zif_tt_i_tasks_c=>sc_node_attribute-ztt_i_tasks-progress
+            textid      = zcx_tt_management=>progress_over_100
+            node        = is_ctx-node_key
+            key         = task-key
+            attribute   = zif_tt_i_tasks_c=>sc_node_attribute-ztt_i_tasks-progress
           CHANGING
-            bo_messages  = eo_message ).
+            bo_messages = eo_message ).
 
         INSERT VALUE #( key = task-key ) INTO TABLE et_failed_key.
 
