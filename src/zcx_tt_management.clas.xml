@@ -57,6 +57,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>ZCX_TT_MANAGEMENT</CLSNAME>
+     <CMPNAME>TASK_CHANGED</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Task has been changed by another process, please refresh</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCX_TT_MANAGEMENT</CLSNAME>
      <CMPNAME>TASK_ENDED</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Task &amp;1 is already ended</DESCRIPT>

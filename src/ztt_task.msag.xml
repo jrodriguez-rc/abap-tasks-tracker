@@ -56,6 +56,12 @@
      <MSGNR>008</MSGNR>
      <TEXT>Task is at 100% progress, please set end status</TEXT>
     </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZTT_TASK</ARBGB>
+     <MSGNR>009</MSGNR>
+     <TEXT>Task has been changed by another process, please refresh</TEXT>
+    </T100>
    </T100>
   </asx:values>
  </asx:abap>

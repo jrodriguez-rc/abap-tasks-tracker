@@ -78,7 +78,16 @@ CLASS zcx_tt_management DEFINITION
         attr2 TYPE scx_attrname VALUE 'TEXT2',
         attr3 TYPE scx_attrname VALUE 'TEXT3',
         attr4 TYPE scx_attrname VALUE 'TEXT4',
-      END OF progress_100_non_ended_task.
+      END OF progress_100_non_ended_task,
+      "! <p class="shorttext synchronized" lang="en">Task has been changed by another process, please refresh</p>
+      BEGIN OF task_changed,
+        msgid TYPE symsgid VALUE 'ZTT_TASK',
+        msgno TYPE symsgno VALUE '009',
+        attr1 TYPE scx_attrname VALUE 'TEXT1',
+        attr2 TYPE scx_attrname VALUE 'TEXT2',
+        attr3 TYPE scx_attrname VALUE 'TEXT3',
+        attr4 TYPE scx_attrname VALUE 'TEXT4',
+      END OF task_changed.
 
     "! <p class="shorttext synchronized" lang="en">Text 1</p>
     DATA text1 TYPE string .
