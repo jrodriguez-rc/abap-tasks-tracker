@@ -22,7 +22,7 @@ CLASS zcl_tt_a_lock_i_tasks IMPLEMENTATION.
 
   METHOD /bobf/if_lib_lock_active~lock_active_entity.
 
-    " Not valid
+    CLEAR: et_failed_key.
 
   ENDMETHOD.
 
