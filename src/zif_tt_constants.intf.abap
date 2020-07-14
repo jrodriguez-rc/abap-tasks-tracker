@@ -7,8 +7,9 @@ INTERFACE zif_tt_constants
       backlog          TYPE ztt_status VALUE '' ##NO_TEXT,
       open             TYPE ztt_status VALUE 'OPEN' ##NO_TEXT,
       work_in_progress TYPE ztt_status VALUE 'WIP' ##NO_TEXT,
-      locked           TYPE ztt_status VALUE 'LOCKED' ##NO_TEXT,
+      testing          TYPE ztt_status VALUE 'TESTING' ##NO_TEXT,
       ended            TYPE ztt_status VALUE 'ENDED' ##NO_TEXT,
+      locked           TYPE ztt_status VALUE 'LOCKED' ##NO_TEXT,
       cancelled        TYPE ztt_status VALUE 'CANCEL' ##NO_TEXT,
     END OF gc_status.
 
