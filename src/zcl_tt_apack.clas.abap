@@ -7,11 +7,10 @@ CLASS zcl_tt_apack DEFINITION
   PUBLIC SECTION.
     INTERFACES if_apack_manifest.
 
-    CONSTANTS:
-      gc_group       TYPE string VALUE 'github.com/jrodriguez-rc',
-      gc_artifact_id TYPE string VALUE 'abap-tasks-tracker' ##NO_TEXT,
-      gc_version     TYPE string VALUE '1.0.0' ##NO_TEXT,
-      gc_repository  TYPE string VALUE 'https://github.com/jrodriguez-rc/abap-tasks-tracker.git' ##NO_TEXT.
+    CONSTANTS gc_group       TYPE string VALUE 'github.com/jrodriguez-rc' ##NO_TEXT.
+    CONSTANTS gc_artifact_id TYPE string VALUE 'abap-tasks-tracker' ##NO_TEXT.
+    CONSTANTS gc_version     TYPE string VALUE '1.0.0' ##NO_TEXT.
+    CONSTANTS gc_repository  TYPE string VALUE 'https://github.com/jrodriguez-rc/abap-tasks-tracker.git' ##NO_TEXT.
 
     "! <p class="shorttext synchronized" lang="en">CONSTRUCTOR</p>
     "!
