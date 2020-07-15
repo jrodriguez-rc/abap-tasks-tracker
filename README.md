@@ -1,5 +1,5 @@
-[![abaplint](https://github.com/jrodriguez-rc/abap-tasks-tracker/workflows/abaplint/badge.svg)
-[![abap package version](https://img.shields.io/endpoint?url=https://shield.abap.space/version-shield-json/github/jrodriguez-rc/abap-tasks-tracker/src/zcl_tt_apack.clas.abap/gc_version&label=version)](https://github.com/jrodriguez-rc/abap-tasks-tracker/blob/master/src/zcl_tt_apack.clas.abap)
+![abaplint](https://github.com/jrodriguez-rc/abap-tasks-tracker/workflows/abaplint/badge.svg)
+[![abap package version](https://img.shields.io/endpoint?url=https://shield.abap.space/version-shield-json/github/jrodriguez-rc/abap-tasks-tracker/src/zcl_tt_apack.clas.abap/gc_version&label=version)](.apack-manifest.xml)
 # Tasks Tracker for SAP
 
 ***Note: Netweaver release 7.50 or higher is required and it isn't dependent for HANA Databases. (it means a lot of limitations of CDS annotations)***
