@@ -1,4 +1,4 @@
-![abaplint](https://github.com/jrodriguez-rc/abap-tasks-tracker/workflows/abaplint/badge.svg)
+[![abaplint Status](https://github.com/jrodriguez-rc/abap-tasks-tracker/workflows/abaplint/badge.svg)](https://github.com/jrodriguez-rc/abap-tasks-tracker/actions)
 [![abap package version](https://img.shields.io/endpoint?url=https://shield.abap.space/version-shield-json/github/jrodriguez-rc/abap-tasks-tracker/src/zcl_tt_apack.clas.abap/gc_version&label=version)](.apack-manifest.xml)
 # Tasks Tracker for SAP
 
