@@ -82,9 +82,11 @@ define view ZTT_I_TASKS
                 else 0 end as secondsToDeadline,
 
         @ObjectModel.foreignKey.association: '_functionalUserInfo'
+        @Semantics.user.responsible: true
         functional_responsible,
         
         @ObjectModel.foreignKey.association: '_technicalUserInfo'
+        @Semantics.user.responsible: true
         technical_responsible,
         
         crea_date_time,

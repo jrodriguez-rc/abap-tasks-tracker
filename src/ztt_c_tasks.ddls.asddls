@@ -196,7 +196,10 @@ define view ZTT_C_TASKS
             },
             lineItem: {
                 position: 70,
-                importance: #HIGH
+                importance: #HIGH,
+                type: #AS_CONTACT,
+                label: 'Functional Responsible',
+                value: '_functionalUserInfo'
             },
             selectionField.position: 70
         }
@@ -216,7 +219,10 @@ define view ZTT_C_TASKS
             },
             lineItem: {
                 position: 80,
-                importance: #MEDIUM
+                importance: #MEDIUM,
+                type: #AS_CONTACT,
+                label: 'Technical Responsible',
+                value: '_technicalUserInfo'
             },
             selectionField.position: 80
         }
@@ -233,7 +239,11 @@ define view ZTT_C_TASKS
         @ObjectModel.association.type: #TO_COMPOSITION_CHILD
         _timeLog,
         _criticality,
+        @UI: { fieldGroup: [{ qualifier: 'Responsible', importance: #HIGH, position: 20, label: 'Functional Responsible Contact Details', type: #AS_CONTACT, value: '_functionalUserInfo'}],
+               identification: [{ importance: #HIGH, position: 71, label: 'Functional Responsible Contact Details', type: #AS_CONTACT, value: '_functionalUserInfo'}]}
         _functionalUserInfo,
+        @UI: { fieldGroup: [{ qualifier: 'Responsible', importance: #MEDIUM, position: 21, label: 'Technical Responsible Contact Details', type: #AS_CONTACT, value: '_technicalUserInfo'}],
+               identification: [{ importance: #MEDIUM, position: 81, label: 'Technical Responsible Contact Details', type: #AS_CONTACT, value: '_technicalUserInfo'}]}
         _technicalUserInfo,
         _status
 }
