@@ -33,10 +33,10 @@ define view ZTT_VH_USER
         @Semantics.name.additionalName: true
         _userInfo.namemiddle as middleName,
         
-        @Semantics.eMail.address 
+        @Semantics.eMail.type: [#PREF,#WORK]
         _emailAddress.smtp_addr as email,
 
-        @Semantics.telephone.type: [#PREF] 
+        @Semantics.telephone.type: [#PREF,#WORK]
         _businessAddress.tel_number as telephone
     
 } where userType = 'A' or userType = 'L' or userType = 'C'
