@@ -13,7 +13,7 @@
     semanticKey: [ 'projectCode', 'code' ],
     createEnabled: true,
     updateEnabled: true,
-    deleteEnabled: true,
+    deleteEnabled: false,
     transactionalProcessingDelegated: true
 }
 
@@ -53,15 +53,16 @@ define view ZTT_C_TASKS
         }
         @UI: {
             identification: [
-                {type: #FOR_ACTION, position: 1, dataAction: 'BOPF:CREATE_TR_WB', label: 'New Workbench TR'},
-                {type: #FOR_ACTION, position: 2, dataAction: 'BOPF:CREATE_TR_CU', label: 'New Customizing TR'},
+                {type: #FOR_ACTION, position: 1, dataAction: 'BOPF:CANCEL', label: 'Cancel'},
+                {type: #FOR_ACTION, position: 2, dataAction: 'BOPF:CREATE_TR_WB', label: 'New Workbench TR'},
+                {type: #FOR_ACTION, position: 3, dataAction: 'BOPF:CREATE_TR_CU', label: 'New Customizing TR'},
                 {type: #FOR_ACTION, position: 9, dataAction: 'BOPF:END_TASK', label: 'End task'},
                 { position: 10, importance: #HIGH }
             ],
-            lineItem: {
-                position: 10,
-                importance: #HIGH
-            },
+            lineItem: [
+                {type: #FOR_ACTION, position: 1, dataAction: 'BOPF:CANCEL', label: 'Cancel'},
+                {position: 10, importance: #HIGH }
+            ],
             selectionField.position: 10,
             dataPoint.title: 'Project code'
         }
@@ -134,16 +135,24 @@ define view ZTT_C_TASKS
         @UI.statusInfo: [ { position: 10 } ]
         status,
         
+        @ObjectModel.readOnly: true
+        case when progress < 33 then 1
+             when progress > 66 then 3
+                                else 2
+             end as progressCriticality,
+        
+        @UI.identification: {position: 38, importance: #MEDIUM }
+        @UI.lineItem: {position: 38, importance: #HIGH, type:#AS_DATAPOINT, criticality:'progressCriticality' }
         @UI.dataPoint: {
             title: 'Progress',
             description: 'Progress percentage',
             longDescription: 'Progress percentage',
             minimumValue: 0,
             maximumValue: 100,
-            responsible: 'functional_responsible'
+            responsible: 'functional_responsible',
+            targetValue: '100',
+            visualization: #PROGRESS
         }
-        @UI.identification: {position: 38, importance: #MEDIUM }
-        @UI.lineItem: {position: 38, importance: #HIGH }
         progress,
         
         @UI.identification: {position: 40, importance: #MEDIUM }
