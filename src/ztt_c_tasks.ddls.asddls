@@ -13,7 +13,7 @@
     semanticKey: [ 'projectCode', 'code' ],
     createEnabled: true,
     updateEnabled: true,
-    deleteEnabled: false,
+    deleteEnabled: true,
     transactionalProcessingDelegated: true
 }
 

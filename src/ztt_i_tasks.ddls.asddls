@@ -111,4 +111,4 @@ define view ZTT_I_TASKS
         _timeUnit,
         _status
 
-}
+} where cancelled = '';

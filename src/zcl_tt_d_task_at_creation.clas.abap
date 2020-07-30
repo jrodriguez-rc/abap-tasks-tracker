@@ -103,9 +103,8 @@ CLASS zcl_tt_d_task_at_creation IMPLEMENTATION.
       WITH KEY project_code = project_code.
     IF sy-subrc <> 0.
 
-      INSERT INITIAL LINE INTO TABLE last_project_numbers ASSIGNING <last_project_number>.
-
-      <last_project_number>-project_code = project_code.
+      INSERT VALUE #( project_code = project_code ) INTO TABLE last_project_numbers
+        ASSIGNING <last_project_number>.
 
       SELECT COUNT(*)
         INTO @DATA(count)

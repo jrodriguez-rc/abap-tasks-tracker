@@ -1,146 +1,146 @@
 "! <p class="shorttext synchronized" lang="en">Generated Constants Interface</p>
-INTERFACE zif_tt_i_projects_c
-  PUBLIC .
+interface ZIF_TT_I_PROJECTS_C
+  public .
 
 
-  INTERFACES /bobf/if_lib_constants .
+  interfaces /BOBF/IF_LIB_CONSTANTS .
 
-  CONSTANTS:
+  constants:
     "! <p class="shorttext synchronized" lang="en">Actions</p>
-    BEGIN OF sc_action,
-      BEGIN OF ztt_i_projects,
-        create_ztt_i_projects   TYPE /bobf/act_key VALUE '0250E0674B721EEAAF91101B9BA7FF3B',
-        delete_ztt_i_projects   TYPE /bobf/act_key VALUE '0250E0674B721EEAAF91101B9BA87F3B',
-        lock_ztt_i_projects     TYPE /bobf/act_key VALUE '0250E0674B721EEAAF91101B9BA73F3B',
-        save_ztt_i_projects     TYPE /bobf/act_key VALUE '0250E0674B721EEAAF91101B9BA8FF3B',
-        unlock_ztt_i_projects   TYPE /bobf/act_key VALUE '0250E0674B721EEAAF91101B9BA77F3B',
-        update_ztt_i_projects   TYPE /bobf/act_key VALUE '0250E0674B721EEAAF91101B9BA83F3B',
-        validate_ztt_i_projects TYPE /bobf/act_key VALUE '0250E0674B721EEAAF91101B9BA8BF3B',
-      END OF ztt_i_projects,
-    END OF sc_action .
-  CONSTANTS:
+    BEGIN OF SC_ACTION,
+      BEGIN OF ZTT_I_PROJECTS,
+ CREATE_ZTT_I_PROJECTS          TYPE /BOBF/ACT_KEY VALUE '0250E0674B721EEAAF91101B9BA7FF3B',
+ DELETE_ZTT_I_PROJECTS          TYPE /BOBF/ACT_KEY VALUE '0250E0674B721EEAAF91101B9BA87F3B',
+ LOCK_ZTT_I_PROJECTS            TYPE /BOBF/ACT_KEY VALUE '0250E0674B721EEAAF91101B9BA73F3B',
+ SAVE_ZTT_I_PROJECTS            TYPE /BOBF/ACT_KEY VALUE '0250E0674B721EEAAF91101B9BA8FF3B',
+ UNLOCK_ZTT_I_PROJECTS          TYPE /BOBF/ACT_KEY VALUE '0250E0674B721EEAAF91101B9BA77F3B',
+ UPDATE_ZTT_I_PROJECTS          TYPE /BOBF/ACT_KEY VALUE '0250E0674B721EEAAF91101B9BA83F3B',
+ VALIDATE_ZTT_I_PROJECTS        TYPE /BOBF/ACT_KEY VALUE '0250E0674B721EEAAF91101B9BA8BF3B',
+      END OF ZTT_I_PROJECTS,
+    END OF SC_ACTION .
+  constants:
     "! <p class="shorttext synchronized" lang="en">Action Parameter Attributes</p>
-    BEGIN OF sc_action_attribute,
-      BEGIN OF ztt_i_projects,
-        BEGIN OF lock_ztt_i_projects,
-          generic               TYPE string VALUE 'GENERIC',
-          edit_mode             TYPE string VALUE 'EDIT_MODE',
-          all_none              TYPE string VALUE 'ALL_NONE',
-          scope                 TYPE string VALUE 'SCOPE',
-          force_invalidation    TYPE string VALUE 'FORCE_INVALIDATION',
-          lock_parameter_buffer TYPE string VALUE 'LOCK_PARAMETER_BUFFER',
-        END OF lock_ztt_i_projects,
-        BEGIN OF unlock_ztt_i_projects,
-          generic               TYPE string VALUE 'GENERIC',
-          edit_mode             TYPE string VALUE 'EDIT_MODE',
-          all_none              TYPE string VALUE 'ALL_NONE',
-          scope                 TYPE string VALUE 'SCOPE',
-          force_invalidation    TYPE string VALUE 'FORCE_INVALIDATION',
-          lock_parameter_buffer TYPE string VALUE 'LOCK_PARAMETER_BUFFER',
-        END OF unlock_ztt_i_projects,
-      END OF ztt_i_projects,
-    END OF sc_action_attribute .
-  CONSTANTS:
+    BEGIN OF SC_ACTION_ATTRIBUTE,
+        BEGIN OF ZTT_I_PROJECTS,
+        BEGIN OF LOCK_ZTT_I_PROJECTS,
+ GENERIC                        TYPE STRING VALUE 'GENERIC',
+ EDIT_MODE                      TYPE STRING VALUE 'EDIT_MODE',
+ ALL_NONE                       TYPE STRING VALUE 'ALL_NONE',
+ SCOPE                          TYPE STRING VALUE 'SCOPE',
+ FORCE_INVALIDATION             TYPE STRING VALUE 'FORCE_INVALIDATION',
+ LOCK_PARAMETER_BUFFER          TYPE STRING VALUE 'LOCK_PARAMETER_BUFFER',
+        END OF LOCK_ZTT_I_PROJECTS,
+        BEGIN OF UNLOCK_ZTT_I_PROJECTS,
+ GENERIC                        TYPE STRING VALUE 'GENERIC',
+ EDIT_MODE                      TYPE STRING VALUE 'EDIT_MODE',
+ ALL_NONE                       TYPE STRING VALUE 'ALL_NONE',
+ SCOPE                          TYPE STRING VALUE 'SCOPE',
+ FORCE_INVALIDATION             TYPE STRING VALUE 'FORCE_INVALIDATION',
+ LOCK_PARAMETER_BUFFER          TYPE STRING VALUE 'LOCK_PARAMETER_BUFFER',
+        END OF UNLOCK_ZTT_I_PROJECTS,
+      END OF ZTT_I_PROJECTS,
+    END OF SC_ACTION_ATTRIBUTE .
+  constants:
     "! <p class="shorttext synchronized" lang="en">Alternative Keys</p>
-    BEGIN OF sc_alternative_key,
-      BEGIN OF ztt_i_projects,
-        db_key TYPE /bobf/obm_altkey_key VALUE '0250E0674B721EEAAF91101B9BA9DF3B',
-      END OF ztt_i_projects,
-    END OF sc_alternative_key .
-  CONSTANTS:
+    BEGIN OF SC_ALTERNATIVE_KEY,
+      BEGIN OF ZTT_I_PROJECTS,
+ DB_KEY                         TYPE /BOBF/OBM_ALTKEY_KEY VALUE '0250E0674B721EEAAF91101B9BA9DF3B',
+      END OF ZTT_I_PROJECTS,
+    END OF SC_ALTERNATIVE_KEY .
+  constants:
     "! <p class="shorttext synchronized" lang="en">Associations</p>
-    BEGIN OF sc_association,
-      BEGIN OF ztt_i_projects,
-        lock     TYPE /bobf/obm_assoc_key VALUE '0250E0674B721EEAAF91101B9BA71F3B',
-        message  TYPE /bobf/obm_assoc_key VALUE '0250E0674B721EEAAF91101B9BA6DF3B',
-        property TYPE /bobf/obm_assoc_key VALUE '0250E0674B721EEAAF91101B9BA7DF3B',
-      END OF ztt_i_projects,
-      BEGIN OF ztt_i_projects_lock,
-        to_parent TYPE /bobf/obm_assoc_key VALUE '0250E0674B721EEAAF91101B9BA95F3B',
-      END OF ztt_i_projects_lock,
-      BEGIN OF ztt_i_projects_message,
-        to_parent TYPE /bobf/obm_assoc_key VALUE '0250E0674B721EEAAF91101B9BA93F3B',
-      END OF ztt_i_projects_message,
-      BEGIN OF ztt_i_projects_property,
-        to_parent TYPE /bobf/obm_assoc_key VALUE '0250E0674B721EEAAF91101B9BA97F3B',
-      END OF ztt_i_projects_property,
-    END OF sc_association .
-  CONSTANTS:
+    BEGIN OF SC_ASSOCIATION,
+      BEGIN OF ZTT_I_PROJECTS,
+ LOCK                           TYPE /BOBF/OBM_ASSOC_KEY VALUE '0250E0674B721EEAAF91101B9BA71F3B',
+ MESSAGE                        TYPE /BOBF/OBM_ASSOC_KEY VALUE '0250E0674B721EEAAF91101B9BA6DF3B',
+ PROPERTY                       TYPE /BOBF/OBM_ASSOC_KEY VALUE '0250E0674B721EEAAF91101B9BA7DF3B',
+      END OF ZTT_I_PROJECTS,
+      BEGIN OF ZTT_I_PROJECTS_LOCK,
+ TO_PARENT                      TYPE /BOBF/OBM_ASSOC_KEY VALUE '0250E0674B721EEAAF91101B9BA95F3B',
+      END OF ZTT_I_PROJECTS_LOCK,
+      BEGIN OF ZTT_I_PROJECTS_MESSAGE,
+ TO_PARENT                      TYPE /BOBF/OBM_ASSOC_KEY VALUE '0250E0674B721EEAAF91101B9BA93F3B',
+      END OF ZTT_I_PROJECTS_MESSAGE,
+      BEGIN OF ZTT_I_PROJECTS_PROPERTY,
+ TO_PARENT                      TYPE /BOBF/OBM_ASSOC_KEY VALUE '0250E0674B721EEAAF91101B9BA97F3B',
+      END OF ZTT_I_PROJECTS_PROPERTY,
+    END OF SC_ASSOCIATION .
+  constants:
     "! <p class="shorttext synchronized" lang="en">Association Parameter Attributes</p>
-    BEGIN OF sc_association_attribute,
-      BEGIN OF ztt_i_projects,
-        BEGIN OF property,
-          all_node_property              TYPE string VALUE 'ALL_NODE_PROPERTY',
-          all_node_attribute_property    TYPE string VALUE 'ALL_NODE_ATTRIBUTE_PROPERTY',
-          all_association_property       TYPE string VALUE 'ALL_ASSOCIATION_PROPERTY',
-          all_association_attribute_prop TYPE string VALUE 'ALL_ASSOCIATION_ATTRIBUTE_PROP',
-          all_action_property            TYPE string VALUE 'ALL_ACTION_PROPERTY',
-          all_action_attribute_property  TYPE string VALUE 'ALL_ACTION_ATTRIBUTE_PROPERTY',
-          all_query_property             TYPE string VALUE 'ALL_QUERY_PROPERTY',
-          all_query_attribute_property   TYPE string VALUE 'ALL_QUERY_ATTRIBUTE_PROPERTY',
-          all_subtree_property           TYPE string VALUE 'ALL_SUBTREE_PROPERTY',
-        END OF property,
-      END OF ztt_i_projects,
-    END OF sc_association_attribute .
-  CONSTANTS:
+    BEGIN OF SC_ASSOCIATION_ATTRIBUTE,
+      BEGIN OF ZTT_I_PROJECTS,
+        BEGIN OF PROPERTY,
+ ALL_NODE_PROPERTY              TYPE STRING VALUE 'ALL_NODE_PROPERTY',
+ ALL_NODE_ATTRIBUTE_PROPERTY    TYPE STRING VALUE 'ALL_NODE_ATTRIBUTE_PROPERTY',
+ ALL_ASSOCIATION_PROPERTY       TYPE STRING VALUE 'ALL_ASSOCIATION_PROPERTY',
+ ALL_ASSOCIATION_ATTRIBUTE_PROP TYPE STRING VALUE 'ALL_ASSOCIATION_ATTRIBUTE_PROP',
+ ALL_ACTION_PROPERTY            TYPE STRING VALUE 'ALL_ACTION_PROPERTY',
+ ALL_ACTION_ATTRIBUTE_PROPERTY  TYPE STRING VALUE 'ALL_ACTION_ATTRIBUTE_PROPERTY',
+ ALL_QUERY_PROPERTY             TYPE STRING VALUE 'ALL_QUERY_PROPERTY',
+ ALL_QUERY_ATTRIBUTE_PROPERTY   TYPE STRING VALUE 'ALL_QUERY_ATTRIBUTE_PROPERTY',
+ ALL_SUBTREE_PROPERTY           TYPE STRING VALUE 'ALL_SUBTREE_PROPERTY',
+        END OF PROPERTY,
+      END OF ZTT_I_PROJECTS,
+    END OF SC_ASSOCIATION_ATTRIBUTE .
+  constants:
     "! <p class="shorttext synchronized" lang="en">#GENERATED#</p>
-    sc_bo_key  TYPE /bobf/obm_bo_key VALUE '0250E0674B721EEAAF91101B9BA63F3B' .
-  CONSTANTS:
+    SC_BO_KEY  TYPE /BOBF/OBM_BO_KEY VALUE '0250E0674B721EEAAF91101B9BA63F3B' .
+  constants:
     "! <p class="shorttext synchronized" lang="en">#GENERATED#</p>
-    sc_bo_name TYPE /bobf/obm_name VALUE 'ZTT_I_PROJECTS' .
-  CONSTANTS:
+    SC_BO_NAME TYPE /BOBF/OBM_NAME VALUE 'ZTT_I_PROJECTS' .
+  constants:
     "! <p class="shorttext synchronized" lang="en">Determinations</p>
-    BEGIN OF sc_determination,
-      BEGIN OF ztt_i_projects,
-        action_and_field_control TYPE /bobf/det_key VALUE '0250E0674B721EEAAF91101B9BA9FF3B',
-        admin_data               TYPE /bobf/det_key VALUE '0250E0674B721EEAAF9114FA8B261F3C',
-      END OF ztt_i_projects,
-    END OF sc_determination .
-  CONSTANTS:
+    BEGIN OF SC_DETERMINATION,
+      BEGIN OF ZTT_I_PROJECTS,
+ ACTION_AND_FIELD_CONTROL       TYPE /BOBF/DET_KEY VALUE '0250E0674B721EEAAF91101B9BA9FF3B',
+ ADMIN_DATA                     TYPE /BOBF/DET_KEY VALUE '0250E0674B721EEAAF9114FA8B261F3C',
+      END OF ZTT_I_PROJECTS,
+    END OF SC_DETERMINATION .
+  constants:
     "! <p class="shorttext synchronized" lang="en">Groups</p>
-    BEGIN OF sc_group,
-      ztt_i_projects TYPE /bobf/obm_group_key VALUE '0250E0674B721EEAAF911C180753DF40',
-    END OF sc_group .
-  CONSTANTS:
-    sc_model_version TYPE /bobf/conf_version VALUE '00000' .
-  CONSTANTS:
+    BEGIN OF SC_GROUP,
+ ZTT_I_PROJECTS                 TYPE /BOBF/OBM_GROUP_KEY VALUE '0250E0674B721EEAAF911C180753DF40',
+    END OF SC_GROUP .
+  constants:
+    SC_MODEL_VERSION TYPE /BOBF/CONF_VERSION VALUE '00000' .
+  constants:
     "! <p class="shorttext synchronized" lang="en">Nodes</p>
-    BEGIN OF sc_node,
-      ztt_i_projects          TYPE /bobf/obm_node_key VALUE '0250E0674B721EEAAF91101B9BA67F3B',
-      ztt_i_projects_lock     TYPE /bobf/obm_node_key VALUE '0250E0674B721EEAAF91101B9BA6FF3B',
-      ztt_i_projects_message  TYPE /bobf/obm_node_key VALUE '0250E0674B721EEAAF91101B9BA6BF3B',
-      ztt_i_projects_property TYPE /bobf/obm_node_key VALUE '0250E0674B721EEAAF91101B9BA7BF3B',
-    END OF sc_node .
-  CONSTANTS:
+    BEGIN OF SC_NODE,
+ ZTT_I_PROJECTS                 TYPE /BOBF/OBM_NODE_KEY VALUE '0250E0674B721EEAAF91101B9BA67F3B',
+ ZTT_I_PROJECTS_LOCK            TYPE /BOBF/OBM_NODE_KEY VALUE '0250E0674B721EEAAF91101B9BA6FF3B',
+ ZTT_I_PROJECTS_MESSAGE         TYPE /BOBF/OBM_NODE_KEY VALUE '0250E0674B721EEAAF91101B9BA6BF3B',
+ ZTT_I_PROJECTS_PROPERTY        TYPE /BOBF/OBM_NODE_KEY VALUE '0250E0674B721EEAAF91101B9BA7BF3B',
+    END OF SC_NODE .
+  constants:
     "! <p class="shorttext synchronized" lang="en">Node Attributes</p>
-    BEGIN OF sc_node_attribute,
-      BEGIN OF ztt_i_projects,
-        node_data      TYPE string VALUE 'NODE_DATA',
-        code           TYPE string VALUE 'CODE',
-        name           TYPE string VALUE 'NAME',
-        started_on     TYPE string VALUE 'STARTED_ON',
-        ended_on       TYPE string VALUE 'ENDED_ON',
-        tr_target      TYPE string VALUE 'TR_TARGET',
-        cts_project    TYPE string VALUE 'CTS_PROJECT',
-        admin_data     TYPE string VALUE 'ADMIN_DATA',
-        crea_date_time TYPE string VALUE 'CREA_DATE_TIME',
-        crea_uname     TYPE string VALUE 'CREA_UNAME',
-        lchg_date_time TYPE string VALUE 'LCHG_DATE_TIME',
-        lchg_uname     TYPE string VALUE 'LCHG_UNAME',
-      END OF ztt_i_projects,
-    END OF sc_node_attribute .
-  CONSTANTS:
+    BEGIN OF SC_NODE_ATTRIBUTE,
+      BEGIN OF ZTT_I_PROJECTS,
+  NODE_DATA                      TYPE STRING VALUE 'NODE_DATA',
+  CODE                           TYPE STRING VALUE 'CODE',
+  NAME                           TYPE STRING VALUE 'NAME',
+  STARTED_ON                     TYPE STRING VALUE 'STARTED_ON',
+  ENDED_ON                       TYPE STRING VALUE 'ENDED_ON',
+  TR_TARGET                      TYPE STRING VALUE 'TR_TARGET',
+  CTS_PROJECT                    TYPE STRING VALUE 'CTS_PROJECT',
+  ADMIN_DATA                     TYPE STRING VALUE 'ADMIN_DATA',
+  CREA_DATE_TIME                 TYPE STRING VALUE 'CREA_DATE_TIME',
+  CREA_UNAME                     TYPE STRING VALUE 'CREA_UNAME',
+  LCHG_DATE_TIME                 TYPE STRING VALUE 'LCHG_DATE_TIME',
+  LCHG_UNAME                     TYPE STRING VALUE 'LCHG_UNAME',
+      END OF ZTT_I_PROJECTS,
+    END OF SC_NODE_ATTRIBUTE .
+  constants:
     "! <p class="shorttext synchronized" lang="en">Node Categories</p>
-    BEGIN OF sc_node_category,
-      BEGIN OF ztt_i_projects,
-        root TYPE /bobf/obm_node_cat_key VALUE '0250E0674B721EEAAF91101B9BA69F3B',
-      END OF ztt_i_projects,
-    END OF sc_node_category .
-  CONSTANTS:
+    BEGIN OF SC_NODE_CATEGORY,
+      BEGIN OF ZTT_I_PROJECTS,
+ ROOT                           TYPE /BOBF/OBM_NODE_CAT_KEY VALUE '0250E0674B721EEAAF91101B9BA69F3B',
+      END OF ZTT_I_PROJECTS,
+    END OF SC_NODE_CATEGORY .
+  constants:
     "! <p class="shorttext synchronized" lang="en">Validations</p>
-    BEGIN OF sc_validation,
-      BEGIN OF ztt_i_projects,
-        project_code TYPE /bobf/val_key VALUE '0250E0674B721EEAAF911BC1D8741F40',
-      END OF ztt_i_projects,
-    END OF sc_validation .
-ENDINTERFACE.
+    BEGIN OF SC_VALIDATION,
+      BEGIN OF ZTT_I_PROJECTS,
+ PROJECT_CODE                   TYPE /BOBF/VAL_KEY VALUE '0250E0674B721EEAAF911BC1D8741F40',
+      END OF ZTT_I_PROJECTS,
+    END OF SC_VALIDATION .
+endinterface.
