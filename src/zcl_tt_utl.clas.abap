@@ -6,6 +6,8 @@ CLASS zcl_tt_utl DEFINITION
 
   PUBLIC SECTION.
 
+    "! <p class="shorttext synchronized" lang="en">CLASS_CONSTRUCTOR</p>
+    "!
     CLASS-METHODS class_constructor.
 
     "! <p class="shorttext synchronized" lang="en">Determine if task can be deleted</p>
