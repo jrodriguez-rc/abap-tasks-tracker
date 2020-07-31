@@ -13,7 +13,7 @@
     semanticKey: [ 'project_code', 'code' ],
     createEnabled: true,
     updateEnabled: true,
-    deleteEnabled: true,
+    deleteEnabled: false,
     transactionalProcessingEnabled: true,
     writeActivePersistence: 'ZTT_TASKS'
 }
@@ -35,80 +35,82 @@ define view ZTT_I_TASKS
                                                                              and $projection.project_code           = _totalHours.projectCode
 {
 
-        @Search.defaultSearchElement: true
-        @ObjectModel.readOnly: 'EXTERNAL_CALCULATION'
-        @ObjectModel.mandatory: true
-        @ObjectModel.text.association: '_project'
-        @Search.ranking: #HIGH
-        @ObjectModel.foreignKey.association: '_project'
-    key project_code,
-    
-        @ObjectModel: { 
-            mandatory: true,
-            readOnly: 'EXTERNAL_CALCULATION',
-            text.element: ['description']
-        }
-        @Search.defaultSearchElement: true
-        @Search.ranking: #HIGH
-    key code,
-    
-        @Search.defaultSearchElement: true
-        @Search.ranking: #MEDIUM
-        description,
-        
-        @Search.defaultSearchElement: true
-        @ObjectModel.foreignKey.association: '_status'
-        status,
-        
-        progress,
-        
-        estimation,
-        
-        @ObjectModel.foreignKey.association: '_timeUnit'
-        time_unit,
-        
-        plan_end_date,
-        
-        plan_end_ts_utc,
-        
-        ended_on,
+      @Search.defaultSearchElement: true
+      @ObjectModel.readOnly: 'EXTERNAL_CALCULATION'
+      @ObjectModel.mandatory: true
+      @ObjectModel.text.association: '_project'
+      @Search.ranking: #HIGH
+      @ObjectModel.foreignKey.association: '_project'
+  key project_code,
 
-        @ObjectModel.readOnly: true
-        case when plan_end_ts_utc > 0
-                then 
-                    case when ended_on > 0
-                            then TSTMP_SECONDS_BETWEEN(ended_on,plan_end_ts_utc,'INITIAL')
-                            else TSTMP_SECONDS_BETWEEN(tstmp_current_utctimestamp(),plan_end_ts_utc,'INITIAL') end
-                else 0 end as secondsToDeadline,
+      @ObjectModel: { 
+          mandatory: true,
+          readOnly: 'EXTERNAL_CALCULATION',
+          text.element: ['description']
+      }
+      @Search.defaultSearchElement: true
+      @Search.ranking: #HIGH
+  key code,
 
-        @ObjectModel.foreignKey.association: '_functionalUserInfo'
-        @Semantics.user.responsible: true
-        functional_responsible,
-        
-        @ObjectModel.foreignKey.association: '_technicalUserInfo'
-        @Semantics.user.responsible: true
-        technical_responsible,
-        
-        crea_date_time,
-        
-        crea_uname,
-        
-        lchg_date_time,
-        
-        lchg_uname,
-    
-        /* Associations */
-        _project,
-        @ObjectModel.association.type: #TO_COMPOSITION_CHILD
-        _comments,
-        @ObjectModel.association.type: #TO_COMPOSITION_CHILD
-        _transportRequests,
-        @ObjectModel.association.type: #TO_COMPOSITION_CHILD
-        _timeLog,
-        _totalHours,
-        _functionalUserInfo,
-        _technicalUserInfo,
-        _timeUnit,
-        _status
+      @Search.defaultSearchElement: true
+      @Search.ranking: #MEDIUM
+      description,
 
-} where cancelled = '';
+      @Search.defaultSearchElement: true
+      @ObjectModel.foreignKey.association: '_status'
+      status,
+
+      status_previous,
+
+      progress,
+
+      estimation,
+
+      @ObjectModel.foreignKey.association: '_timeUnit'
+      time_unit,
+
+      plan_end_date,
+
+      plan_end_ts_utc,
+
+      ended_on,
+
+      @ObjectModel.readOnly: true
+      case when plan_end_ts_utc > 0
+              then 
+                  case when ended_on > 0
+                          then TSTMP_SECONDS_BETWEEN(ended_on,plan_end_ts_utc,'INITIAL')
+                          else TSTMP_SECONDS_BETWEEN(tstmp_current_utctimestamp(),plan_end_ts_utc,'INITIAL') end
+              else 0 end as secondsToDeadline,
+
+      @ObjectModel.foreignKey.association: '_functionalUserInfo'
+      @Semantics.user.responsible: true
+      functional_responsible,
+
+      @ObjectModel.foreignKey.association: '_technicalUserInfo'
+      @Semantics.user.responsible: true
+      technical_responsible,
+
+      crea_date_time,
+
+      crea_uname,
+
+      lchg_date_time,
+
+      lchg_uname,
+
+      /* Associations */
+      _project,
+      @ObjectModel.association.type: #TO_COMPOSITION_CHILD
+      _comments,
+      @ObjectModel.association.type: #TO_COMPOSITION_CHILD
+      _transportRequests,
+      @ObjectModel.association.type: #TO_COMPOSITION_CHILD
+      _timeLog,
+      _totalHours,
+      _functionalUserInfo,
+      _technicalUserInfo,
+      _timeUnit,
+      _status
+
+}

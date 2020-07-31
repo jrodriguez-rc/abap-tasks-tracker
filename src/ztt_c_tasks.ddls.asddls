@@ -13,7 +13,7 @@
     semanticKey: [ 'projectCode', 'code' ],
     createEnabled: true,
     updateEnabled: true,
-    deleteEnabled: true,
+    deleteEnabled: false,
     transactionalProcessingDelegated: true
 }
 
@@ -53,9 +53,10 @@ define view ZTT_C_TASKS
         }
         @UI: {
             identification: [
-                {type: #FOR_ACTION, position: 1, dataAction: 'BOPF:CANCEL', label: 'Cancel'},
                 {type: #FOR_ACTION, position: 2, dataAction: 'BOPF:CREATE_TR_WB', label: 'New Workbench TR'},
                 {type: #FOR_ACTION, position: 3, dataAction: 'BOPF:CREATE_TR_CU', label: 'New Customizing TR'},
+                {type: #FOR_ACTION, position: 8, dataAction: 'BOPF:CANCEL', label: 'Cancel'},
+                {type: #FOR_ACTION, position: 8, dataAction: 'BOPF:BACK_PREVIOUS_VERSION', label: 'Restore status'},
                 {type: #FOR_ACTION, position: 9, dataAction: 'BOPF:END_TASK', label: 'End task'},
                 { position: 10, importance: #HIGH }
             ],

@@ -1,19 +1,18 @@
-"! <p class="shorttext synchronized" lang="en">Cancel task</p>
-CLASS zcl_tt_a_task_cancel DEFINITION
+"! <p class="shorttext synchronized" lang="en">Back task to previous version</p>
+CLASS zcl_tt_a_task_back_prev_vers DEFINITION
   PUBLIC
   INHERITING FROM /bobf/cl_lib_a_supercl_simple
   FINAL
   CREATE PUBLIC .
 
   PUBLIC SECTION.
-
     METHODS /bobf/if_frw_action~execute
         REDEFINITION.
 
   PROTECTED SECTION.
 
   PRIVATE SECTION.
-    METHODS cancel_task
+    METHODS restore_task_status
       CHANGING
         task TYPE zstti_tasks
       RAISING
@@ -23,7 +22,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_tt_a_task_cancel IMPLEMENTATION.
+CLASS zcl_tt_a_task_back_prev_vers IMPLEMENTATION.
 
 
   METHOD /bobf/if_frw_action~execute.
@@ -37,7 +36,7 @@ CLASS zcl_tt_a_task_cancel IMPLEMENTATION.
     LOOP AT tasks INTO DATA(task).
 
       TRY.
-          cancel_task( CHANGING task = task ).
+          restore_task_status( CHANGING task = task ).
         CATCH zcx_tt_management INTO DATA(lx_management).
           zcx_tt_management=>collect_bo_message(
             EXPORTING
@@ -64,10 +63,10 @@ CLASS zcl_tt_a_task_cancel IMPLEMENTATION.
   ENDMETHOD.
 
 
-  METHOD cancel_task.
+  METHOD restore_task_status.
 
-    task-status_previous = task-status.
-    task-status = zif_tt_constants=>gc_status-cancelled.
+    task-status = task-status_previous.
+    CLEAR: task-status_previous.
 
   ENDMETHOD.
 

@@ -71,10 +71,15 @@ CLASS zcl_tt_d_i_tasks_action_and_fi IMPLEMENTATION.
             iv_value      = xsdbool( task-status = zif_tt_constants=>gc_status-open OR
                                      task-status = zif_tt_constants=>gc_status-work_in_progress ) ).
 
-      property_helper->set_action_enabled(  " WIP: Replace Delete by Cancel action
+      property_helper->set_action_enabled(
             iv_action_key = zif_tt_i_tasks_c=>sc_action-ztt_i_tasks-cancel
             iv_key        = task-key
-            iv_value      = xsdbool( sy-uname = 'JRODRIGUEZ' ) ).
+            iv_value      = xsdbool( task-status <> zif_tt_constants=>gc_status-cancelled ) ).
+
+      property_helper->set_action_enabled(
+            iv_action_key = zif_tt_i_tasks_c=>sc_action-ztt_i_tasks-back_previous_version
+            iv_key        = task-key
+            iv_value      = xsdbool( task-status = zif_tt_constants=>gc_status-cancelled ) ).
 
     ENDLOOP.
 

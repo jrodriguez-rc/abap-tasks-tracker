@@ -68,9 +68,7 @@ CLASS zcl_tt_v_task_end IMPLEMENTATION.
 
   METHOD check_end_status.
 
-    IF task-ended_on = 0 AND
-        ( task-status = zif_tt_constants=>gc_status-ended OR
-          task-status = zif_tt_constants=>gc_status-cancelled ).
+    IF task-ended_on = 0 AND task-status = zif_tt_constants=>gc_status-ended.
 
       zcx_tt_management=>collect_bo_message(
         EXPORTING
@@ -84,9 +82,7 @@ CLASS zcl_tt_v_task_end IMPLEMENTATION.
 
     ENDIF.
 
-    IF task-ended_on > 0 AND
-        task-status <> zif_tt_constants=>gc_status-ended AND
-        task-status <> zif_tt_constants=>gc_status-cancelled.
+    IF task-ended_on > 0 AND task-status <> zif_tt_constants=>gc_status-ended.
 
       zcx_tt_management=>collect_bo_message(
         EXPORTING
