@@ -52,6 +52,14 @@ CLASS zcl_tt_d_i_tasks_action_and_fi IMPLEMENTATION.
 
     LOOP AT tasks INTO DATA(task).
 
+      property_helper->set_node_update_enabled(
+           iv_key   = task-key
+           iv_value = xsdbool( task-status <> zif_tt_constants=>gc_status-cancelled ) ).
+
+      property_helper->set_node_delete_enabled(
+           iv_key   = task-key
+           iv_value = zcl_tt_utl=>can_delete_task( task ) ).
+
       property_helper->set_attribute_read_only(
            iv_attribute_name = zif_tt_i_tasks_c=>sc_node_attribute-ztt_i_tasks-project_code
            iv_key            = task-key
@@ -75,10 +83,6 @@ CLASS zcl_tt_d_i_tasks_action_and_fi IMPLEMENTATION.
             iv_action_key = zif_tt_i_tasks_c=>sc_action-ztt_i_tasks-cancel
             iv_key        = task-key
             iv_value      = xsdbool( task-status <> zif_tt_constants=>gc_status-cancelled ) ).
-
-      property_helper->set_node_update_enabled(
-           iv_key   = task-key
-           iv_value = xsdbool( task-status <> zif_tt_constants=>gc_status-cancelled ) ).
 
       property_helper->set_action_enabled(
             iv_action_key = zif_tt_i_tasks_c=>sc_action-ztt_i_tasks-back_previous_version
