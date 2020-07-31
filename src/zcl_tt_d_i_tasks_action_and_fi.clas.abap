@@ -76,6 +76,10 @@ CLASS zcl_tt_d_i_tasks_action_and_fi IMPLEMENTATION.
             iv_key        = task-key
             iv_value      = xsdbool( task-status <> zif_tt_constants=>gc_status-cancelled ) ).
 
+      property_helper->set_node_update_enabled(
+           iv_key   = task-key
+           iv_value = xsdbool( task-status <> zif_tt_constants=>gc_status-cancelled ) ).
+
       property_helper->set_action_enabled(
             iv_action_key = zif_tt_i_tasks_c=>sc_action-ztt_i_tasks-back_previous_version
             iv_key        = task-key

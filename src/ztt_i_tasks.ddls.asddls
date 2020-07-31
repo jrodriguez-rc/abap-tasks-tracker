@@ -12,7 +12,7 @@
     representativeKey: 'code',
     semanticKey: [ 'project_code', 'code' ],
     createEnabled: true,
-    updateEnabled: true,
+    updateEnabled: 'EXTERNAL_CALCULATION',
     deleteEnabled: false,
     transactionalProcessingEnabled: true,
     writeActivePersistence: 'ZTT_TASKS'

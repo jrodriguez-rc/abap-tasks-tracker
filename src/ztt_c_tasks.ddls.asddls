@@ -12,7 +12,7 @@
     representativeKey: 'code',
     semanticKey: [ 'projectCode', 'code' ],
     createEnabled: true,
-    updateEnabled: true,
+    updateEnabled: 'EXTERNAL_CALCULATION',
     deleteEnabled: false,
     transactionalProcessingDelegated: true
 }
