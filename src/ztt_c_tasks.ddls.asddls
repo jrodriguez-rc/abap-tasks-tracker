@@ -186,12 +186,12 @@ define view ZTT_C_TASKS
             textArrangement: #TEXT_ONLY
         }
         @Consumption.valueHelp:'_criticality'
-        cast(substring(cast( case when plan_end_date <> '00000000'
+        cast( case when plan_end_date <> '00000000'
                       then case when secondsToDeadline <= 0 then 1
                                 when secondsToDeadline between 0 and 86400 then 2
                                 else 3
                               end
-                      else 0 end as abap.char(3) ),1,1) as ztt_task_criticality )
+                      else 0 end as abap.char(3) )
             as endCritically,
         
         @Search: {
