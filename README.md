@@ -7,6 +7,9 @@
 Tasks Tracker for SAP is a simple tool to manage tasks for projects, based on Fiori list report and CDS based on BOPF.
 ![Task details](./images/task-details.png)
 
+## Dependencies
+- [larshp/abapGit-Plugins](https://github.com/larshp/abapGit-Plugins)
+
 ## Installation
 
 Create a package to import the repository.
