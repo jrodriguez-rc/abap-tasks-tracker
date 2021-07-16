@@ -8,13 +8,13 @@ Tasks Tracker for SAP is a simple tool to manage tasks for projects, based on Fi
 ![Task details](./images/task-details.png)
 
 ## Dependencies
-- [larshp/abapGit-Plugins](https://github.com/larshp/abapGit-Plugins)
+- [larshp/abapGit-Plugins](https://github.com/abapGit/abapGit-Plugins)
 
 ## Installation
 
 Create a package to import the repository.
 
-Importing the project with [abapGit](https://docs.abapgit.org/) will generate the corresponding services, which you need to activate with Maintain Service transaction (/IWFND/MAINT_SERVICE) and assign the alias.
+Importing the project with [abapGit](https://github.com/abapGit/abapGit) ([documentation](https://docs.abapgit.org/)) will generate the corresponding services, which you need to activate with Maintain Service transaction (/IWFND/MAINT_SERVICE) and assign the alias.
 
 Import also creates a BC Set ZTT_CONFIG, importing it will generates the semantic object entry in /UI2/V_SEMOBJC and creates the Fiori catalog and group ZTASKS_TRACKER with corresponding tiles and target mappings.
 
