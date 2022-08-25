@@ -4,6 +4,7 @@
         "skipGeneratedGatewayClasses": true,
         "skipGeneratedPersistentClasses": true,
         "skipGeneratedFunctionGroups": true,
+        "skipGeneratedBOPFInterfaces": true,
         "applyUnspecifiedRules": false
     },
     "syntax": {
